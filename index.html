@@ -176,6 +176,42 @@
       margin-bottom: 10px;
     }
 
+    /* NEWS TICKER */
+.news-ticker {
+  height: 130px;
+  overflow: hidden;
+  position: relative;
+  padding: 2px 4px;
+  margin-bottom: 12px;
+}
+
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  animation: newsScroll 20s linear infinite;
+}
+
+.news-list li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.news-ticker:hover .news-list {
+  animation-play-state: paused;
+}
+
+@keyframes newsScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+
     /* PUBLICATION LIST STYLE (title bold + [View paper]) */
 
     .pub-item {
@@ -266,17 +302,27 @@
   <main class="main">
 
     <!-- News -->
-    <section>
-      <h2>News</h2>
-      <ul>
-        <li><strong>[2025]</strong> Automated Prompt Injection Optimization for Large Language Models in Biomedical Text Mining — Invited research talk, Bond Life Sciences Center, University of Missouri.</li>
-        <li><strong>[2025]</strong> Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures — Invited research talk, Bond Life Sciences Center, University of Missouri.</li>
-        <li><strong>[2024]</strong> Optimize ChatGPT Prompts for Text Mining of Gene Relationships through Genetic Algorithm — AI Showcase Presentation, AMIA 2024 Annual Symposium, San Francisco.</li>
-        <li><strong>[2024]</strong> Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation — Oral presentation, IEEE BIBM 2024.</li>
-        <li><strong>[2023]</strong> Extracting Gene Pathways from Figures Using Pool-Less Active Learning — Poster presentation, AMIA 2023 Annual Symposium, New Orleans.</li>
-        <li><strong>[2022]</strong> Recognition of Gene Names from Gene Pathway Figures Using Siamese Network — Oral presentation, WASET Bioengineering &amp; Life Sciences Conference.</li>
-      </ul>
-    </section>
+  <section>
+  <h2>News</h2>
+  <div class="news-ticker">
+    <ul class="news-list">
+
+      <li><strong>[2025]</strong> Automated Prompt Injection Optimization for Large Language Models in Biomedical Text Mining — Invited research talk, Bond Life Sciences Center, University of Missouri.</li>
+
+      <li><strong>[2025]</strong> Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures — Invited research talk, Bond Life Sciences Center, University of Missouri.</li>
+
+      <li><strong>[2024]</strong> Optimize ChatGPT Prompts for Text Mining of Gene Relationships through Genetic Algorithm — AI Showcase Presentation, AMIA 2024 Annual Symposium, San Francisco.</li>
+
+      <li><strong>[2024]</strong> Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation — Oral presentation, IEEE BIBM 2024.</li>
+
+      <li><strong>[2023]</strong> Extracting Gene Pathways from Figures Using Pool-Less Active Learning — Poster presentation, AMIA 2023 Annual Symposium, New Orleans.</li>
+
+      <li><strong>[2022]</strong> Recognition of Gene Names from Gene Pathway Figures Using Siamese Network — Oral presentation, WASET Bioengineering &amp; Life Sciences Conference.</li>
+
+    </ul>
+  </div>
+</section>
+
 
     <!-- Publications -->
     <section>
