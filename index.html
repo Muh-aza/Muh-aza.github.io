@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Muhammad Azam | CV</title>
+  <title>Muhammad Azam | AI & Biomedical Informatics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -109,6 +109,11 @@
       font-size: 1.2rem;
     }
 
+    .theme-toggle:focus-visible {
+      outline: 2px solid #f97316;
+      outline-offset: 3px;
+    }
+
     /* Main Layout */
     main {
       max-width: 960px;
@@ -153,14 +158,45 @@
     .headline {
       font-size: 0.98rem;
       color: var(--text-muted);
-      max-width: 32rem;
+      max-width: 34rem;
       margin: 0 auto 0.3rem;
     }
 
     .meta-line {
       font-size: 0.86rem;
       color: var(--text-muted);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .chip-link {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .chip-link {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .chip-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .chip-link strong {
+      font-weight: 500;
     }
 
     .btn-primary {
@@ -179,6 +215,10 @@
       font-weight: 500;
     }
 
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
     .layout {
       background: var(--card);
       border-radius: 1.25rem;
@@ -191,16 +231,68 @@
       scroll-margin-top: 5rem;
     }
 
+    section + section {
+      margin-top: 1.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border);
+    }
+
     h2 {
       font-size: 1.1rem;
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
     }
 
+    p, li {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    ul {
+      margin-top: 0.3rem;
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.2rem;
+    }
+
     .two-col {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
       gap: 1.6rem;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    .item-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .pill-row {
+      margin-top: 0.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.18rem 0.7rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
     }
 
     footer {
@@ -208,6 +300,34 @@
       margin-top: 1.6rem;
       font-size: 0.78rem;
       color: var(--text-muted);
+    }
+
+    a.inline-link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a.inline-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 720px) {
+      .top-nav-inner {
+        padding-inline: 1rem;
+      }
+      .top-nav-links {
+        justify-content: flex-end;
+      }
+      main {
+        padding-top: 2rem;
+      }
+      .layout {
+        padding: 1.5rem 1.35rem 1.9rem;
+        border-radius: 1rem;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
@@ -222,7 +342,7 @@
         <a href="#research">Research</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
-        <a href="#work">Work</a>
+        <a href="#publications">Selected Work</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -232,19 +352,34 @@
   <button class="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
 
   <main>
-
     <!-- HERO -->
     <header class="hero">
       <div class="avatar-wrapper">
+        <!-- Your photo file: azam.jpeg -->
         <img src="azam.jpeg" alt="Muhammad Azam" class="avatar" />
       </div>
       <h1 class="name">Muhammad Azam</h1>
       <p class="headline">
-        Ph.D. candidate in Computer Science focusing on large language models.
+        Ph.D. candidate in Computer Science working on large language models, prompt optimization,  
+        and AI for biomedical and clinical decision support.
       </p>
       <p class="meta-line">
         University of Missouri · Digital Biology Lab
       </p>
+      <div class="hero-links">
+        <a class="chip-link" href="mailto:muhammadazam@mail.missouri.edu">
+          <strong>Email</strong> · muhammadazam@mail.missouri.edu
+        </a>
+        <a class="chip-link" href="https://scholar.google.com/citations?user=vmdTm7YAAAAJ" target="_blank">
+          Google Scholar
+        </a>
+        <a class="chip-link" href="https://linkedin.com/in/muh-azam-371b51284" target="_blank">
+          LinkedIn
+        </a>
+        <a class="chip-link" href="https://orcid.org/0000-0003-2395-3114" target="_blank">
+          ORCID
+        </a>
+      </div>
       <a class="btn-primary" href="azamcv.pdf" target="_blank">⬇ Download CV (PDF)</a>
     </header>
 
@@ -253,40 +388,128 @@
 
       <section id="about">
         <h2>About</h2>
-        <p>I work at the intersection of LLMs and biomedical informatics.</p>
+        <p>
+          I am a Ph.D. candidate in Computer Science at the University of Missouri and a member of the
+          Digital Biology Lab. My research sits at the intersection of large language models, biomedical
+          text and figure mining, and knowledge graph construction, with the goal of building AI systems
+          that help clinicians and scientists make better decisions.
+        </p>
       </section>
 
       <section id="research">
-        <h2>Research Interests</h2>
-        <ul>
-          <li>LLMs & Prompt Engineering</li>
-          <li>Retrieval-Augmented Generation</li>
-          <li>Knowledge Graphs</li>
-        </ul>
+        <div class="two-col">
+          <div>
+            <h2>Research Interests</h2>
+            <p class="muted">
+              A high-level view of topics I am excited about:
+            </p>
+            <ul>
+              <li>Prompt engineering and optimization for large language models.</li>
+              <li>Retrieval-augmented generation for biomedical literature and pathway figures.</li>
+              <li>Mining gene–disease and gene–drug relationships and building knowledge graphs.</li>
+              <li>AI methods that support clinical and translational research workflows.</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Core Skills</h2>
+            <p class="muted">Methods &amp; tools I use regularly.</p>
+            <div class="pill-row">
+              <span class="pill">Python</span>
+              <span class="pill">PyTorch / TensorFlow</span>
+              <span class="pill">Machine Learning</span>
+              <span class="pill">NLP &amp; LLMs</span>
+              <span class="pill">RAG</span>
+              <span class="pill">Knowledge Graphs</span>
+              <span class="pill">Biomedical Text Mining</span>
+              <span class="pill">Docker</span>
+              <span class="pill">SQL / Neo4j</span>
+              <span class="pill">Git</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="experience">
-        <h2>Experience</h2>
-        <p>Graduate Research Assistant — University of Missouri</p>
+        <div class="two-col">
+          <div>
+            <h2>Experience</h2>
+
+            <div>
+              <div class="item-title">Graduate Research Assistant</div>
+              <div class="item-meta">Digital Biology Lab · University of Missouri</div>
+              <ul>
+                <li>Design and evaluate LLM-based methods for extracting knowledge from biomedical text and pathway figures.</li>
+                <li>Develop pipelines for entity and relation extraction and downstream knowledge graph construction.</li>
+              </ul>
+            </div>
+            <br />
+
+            <div>
+              <div class="item-title">Data Analyst (Freelance)</div>
+              <div class="item-meta">Upwork &amp; Fiverr</div>
+              <ul>
+                <li>Delivered data analysis, automation, and predictive modeling projects for international clients.</li>
+              </ul>
+            </div>
+
+            <br />
+
+            <div>
+              <div class="item-title">Lecturer &amp; Mentor</div>
+              <div class="item-meta">Higher Education Department &amp; Lahore Garrison College</div>
+              <ul>
+                <li>Taught undergraduate computer science courses and supervised student projects.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="education">
+            <h2>Education</h2>
+            <div>
+              <div class="item-title">Ph.D., Computer Science</div>
+              <div class="item-meta">University of Missouri, Columbia · 2022 – present</div>
+            </div>
+            <br />
+            <div>
+              <div class="item-title">MS, Software Engineering</div>
+              <div class="item-meta">University of Agriculture, Faisalabad</div>
+            </div>
+            <br />
+            <div>
+              <div class="item-title">Master, Information Technology</div>
+              <div class="item-meta">Bahauddin Zakariya University</div>
+            </div>
+            <br />
+            <div>
+              <div class="item-title">Bachelor of Science</div>
+              <div class="item-meta">The Islamia University of Bahawalpur</div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="education">
-        <h2>Education</h2>
-        <p>Ph.D. Computer Science — University of Missouri</p>
-      </section>
-
-      <section id="work">
-        <h2>Selected Work</h2>
+      <section id="publications">
+        <h2>Selected Publications &amp; Work</h2>
+        <p class="muted">
+          A short selection of recent work. See Google Scholar for the complete and up-to-date list.
+        </p>
         <ul>
-          <li>Applying LLMs to biomedical pathway knowledge extraction.</li>
+          <li>Applications of large language models and prompt optimization for knowledge extraction from biological pathway figures.</li>
+          <li>Evaluations of similarity-based link prediction techniques and software defect prediction models.</li>
+          <li>Studies on blockchain-backed digital transactions and prediction models in health and social domains.</li>
         </ul>
       </section>
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>Email: muhammadazam@mail.missouri.edu</p>
+        <p>
+          The easiest way to reach me is via email:
+          <a class="inline-link" href="mailto:muhammadazam@mail.missouri.edu">
+            muhammadazam@mail.missouri.edu
+          </a>.
+          I am happy to talk about collaborations, research opportunities, and applied AI projects.
+        </p>
       </section>
-
     </div>
 
     <footer>
@@ -295,14 +518,20 @@
   </main>
 
   <script>
+    // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // theme toggle
     const root = document.body;
     const toggle = document.querySelector(".theme-toggle");
+
     toggle.addEventListener("click", () => {
-      const theme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", theme);
-      toggle.textContent = theme === "dark" ? "☀" : "☾";
+      const current = root.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      toggle.textContent = next === "dark" ? "☀" : "☾";
     });
   </script>
 </body>
 </html>
+
