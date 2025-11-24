@@ -49,6 +49,8 @@
       text-decoration: underline;
     }
 
+    /* LAYOUT */
+
     .page {
       max-width: 1150px;
       margin: 0 auto;
@@ -62,11 +64,20 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 24px 22px;
+      padding: 24px 22px 26px;
       position: sticky;
       top: 18px;
       align-self: flex-start;
     }
+
+    .main {
+      background: var(--card);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 24px 26px 32px;
+    }
+
+    /* SIDEBAR */
 
     .avatar {
       width: 160px;
@@ -89,30 +100,14 @@
       text-align: center;
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .link-row {
-      text-align: center;
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
-
-    .link-row span {
-      color: var(--text-muted);
-    }
-
-    .cv-link {
-      text-align: center;
-      font-size: 0.9rem;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .icon-row {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .icon-circle {
@@ -134,21 +129,27 @@
       text-decoration: none;
     }
 
+    .about-label {
+      margin: 4px 0 6px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+    }
+
     .about-text {
       font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--text-main);
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
+      line-height: 1.65;
+      color: var(--text-main);
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
-    
-    .main {
-      background: var(--card);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      padding: 24px 26px 32px;
-    }
+
+    /* MAIN CONTENT */
 
     h2 {
       font-size: 1.1rem;
@@ -156,12 +157,6 @@
       border-bottom: 1px solid var(--border);
       padding-bottom: 4px;
       font-weight: 600;
-    }
-
-    p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 8px;
     }
 
     ul {
@@ -181,46 +176,28 @@
       margin-bottom: 10px;
     }
 
+    /* PUBLICATION LIST STYLE (title bold + [View paper]) */
 
     .pub-item {
-  margin-bottom: 14px;
-  text-align: justify;
-  text-justify: inter-word;
-  line-height: 1.6;
-}
+      margin-bottom: 10px;
+      text-align: justify;
+      line-height: 1.55;
+    }
 
+    .pub-title-wrapper {
+      display: inline; /* keeps the link on same line as title */
+    }
 
+    .pub-title {
+      font-weight: 700;
+      font-size: 0.97rem;
+    }
 
-   .pub-title {
-  font-weight: 900;
-  font-size: 1.0rem;
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-
-    .pub-auth {
+    .pub-link {
       font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .pub-venue {
-      font-size: 0.9rem;
-      font-style: italic;
-      margin-bottom: 2px;
-    }
-
-    .pub-tags {
-      font-size: 0.82rem;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 1px 7px;
-      margin-right: 4px;
-      border-radius: 999px;
-      background: var(--chip-bg);
-      color: var(--chip-text);
+      color: #2563eb;
+      margin-left: 4px;
+      white-space: nowrap;
     }
 
     .theme-toggle {
@@ -266,7 +243,7 @@
     <div class="email-line">
       muhammadazam [at] mail [dot] missouri [dot] edu
     </div>
-    <!-- round icon buttons like your screenshot -->
+
     <div class="icon-row">
       <a class="icon-circle" href="azamcv.pdf" title="CV" target="_blank">📄</a>
       <a class="icon-circle" href="mailto:muhammadazam@mail.missouri.edu" title="Email">✉️</a>
@@ -275,96 +252,150 @@
       <a class="icon-circle" href="https://orcid.org/0000-0003-2395-3114" target="_blank" title="ORCID">iD</a>
     </div>
 
- <div class="about-section-title"></div>
-
-<div class="about-text">
-  Hello!I am a Ph.D. candidate in Computer Science at the University of Missouri and 
-  a member of the Digital Biology Lab. My research focuses on large language models,
-  biomedical text & figure mining, and knowledge graph construction — particularly 
-  prompt optimization and retrieval strategies that help extract gene–disease and 
-  gene–drug relationships for biomedical discovery and clinical decision support.
-</div>
+    <div class="about-label">ABOUT ME</div>
+    <div class="about-text">
+      I am a Ph.D. candidate in Computer Science at the University of Missouri and
+      a member of the Digital Biology Lab. My research focuses on large language models,
+      biomedical text &amp; figure mining, and knowledge graph construction—particularly
+      prompt optimization and retrieval strategies that help extract gene–disease and
+      gene–drug relationships for biomedical discovery and clinical decision support.
+    </div>
   </aside>
 
   <!-- RIGHT SIDE -->
   <main class="main">
 
-      <!-- News -->
+    <!-- News -->
     <section>
       <h2>News</h2>
       <ul>
-        <li>
-          <strong>[2025]</strong> <em>Automated Prompt Injection Optimization for Large Language Models in Biomedical Text Mining</em> — Invited research talk, Bond Life Sciences Center (LSC), University of Missouri.
-        </li>
-        <li>
-          <strong>[2025]</strong> <em>Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures</em> — Invited research talk, Bond Life Sciences Center (LSC), University of Missouri.
-        </li>
-        <li>
-          <strong>[2024]</strong> <em>Optimize ChatGPT Prompts for Text Mining of Gene Relationships through Genetic Algorithm</em> — AI Showcase Presentation, <em>AMIA 2024 Annual Symposium</em>, San Francisco.
-        </li>
-        <li>
-          <strong>[2024]</strong> <em>Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation</em> — Oral presentation, <em>IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</em>.
-        </li>
-        <li>
-          <strong>[2023]</strong> <em>Extracting Gene Pathways from Figures Using Pool-Less Active Learning</em> — Poster presentation, <em>AMIA 2023 Annual Symposium</em>, New Orleans.
-        </li>
-        <li>
-          <strong>[2022]</strong> <em>Recognition of Gene Names from Gene Pathway Figures Using Siamese Network</em> — Oral presentation, <em>WASET Bioengineering &amp; Life Sciences Conference</em>.
-        </li>
+        <li><strong>[2025]</strong> Automated Prompt Injection Optimization for Large Language Models in Biomedical Text Mining — Invited research talk, Bond Life Sciences Center, University of Missouri.</li>
+        <li><strong>[2025]</strong> Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures — Invited research talk, Bond Life Sciences Center, University of Missouri.</li>
+        <li><strong>[2024]</strong> Optimize ChatGPT Prompts for Text Mining of Gene Relationships through Genetic Algorithm — AI Showcase Presentation, AMIA 2024 Annual Symposium, San Francisco.</li>
+        <li><strong>[2024]</strong> Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation — Oral presentation, IEEE BIBM 2024.</li>
+        <li><strong>[2023]</strong> Extracting Gene Pathways from Figures Using Pool-Less Active Learning — Poster presentation, AMIA 2023 Annual Symposium, New Orleans.</li>
+        <li><strong>[2022]</strong> Recognition of Gene Names from Gene Pathway Figures Using Siamese Network — Oral presentation, WASET Bioengineering &amp; Life Sciences Conference.</li>
       </ul>
     </section>
 
-
+    <!-- Publications -->
     <section>
-  <h2>Selected Publications &amp; Manuscripts</h2>
-
-  <div class="pub-item">Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures <a class="pub-link" href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6363502" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Large-Scale Pretrained Language Models <a class="pub-link" href="https://www.springernature.com/" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Optimize Large Language Model Prompts for Text Mining through Bayesian Optimization <a class="pub-link disabled">[View paper]</a></div>
-
-  <div class="pub-item">Advancing Molecular Biology Analysis with a Retrieval-Augmented Generation Framework for Gene Interactions <a class="pub-link disabled">[View paper]</a></div>
-
-  <div class="pub-item">Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10822181" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Gene Name Recognition in Gene Pathway Figures Using Siamese Networks <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10803455" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">A Comprehensive Evaluation of Large Language Models in Mining Gene Interactions and Pathway Knowledge <a class="pub-link" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/qub2.57" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Recognition of Gene Names from Gene Pathway Figures Using Siamese Network <a class="pub-link" href="https://publications.waset.org/10013091/recognition-of-gene-names-from-gene-pathway-figures-using-siamese-network" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Annotations of Gene Pathways Images in Biomedical Publications Using Siamese Network <a class="pub-link" href="https://publications.waset.org/10013264/annotations-of-gene-pathways-images-in-biomedical-publications-using-siamese-network" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Evaluations of Similarity-Based Link Prediction Techniques in Social Network <a class="pub-link" href="https://jestec.taylors.edu.my/Vol%2018%20Issue%202%20April%202023/18_2_15.pdf" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">A Systematic Review of Non-functional Requirements Mapping into Architectural Styles <a class="pub-link" href="https://beei.org/index.php/EEI/article/view/4081/3185" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Application of Machine Learning in Estimating On-tree Yield of Citrus Fruit <a class="pub-link disabled">[View paper]</a></div>
-
-  <div class="pub-item">Comparative Analysis of Machine Learning Technique to Improve Software Defect Prediction <a class="pub-link" href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/96" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Evaluation of Image Support Resolution Deep Learning Technique Based on PSNR Value <a class="pub-link" href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/160" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Suicidal Behavior Prediction and Socioeconomic Suicide Indicators <a class="pub-link" href="https://publications.eai.eu/index.php/phat/article/view/3175" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">A Systematic Review of Blockchain Technology in the Current Epoch: Applications, Adoption Challenges, and Opportunities <a class="pub-link" href="https://journal.beei.org/index.php/EEI/article/view/4081" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Secure Digital Transactions in The Education Sector Using Blockchain <a class="pub-link" href="https://eudl.eu/doi/10.4108/eai.3-11-2021.171758" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">The Role of Laboratory Technicians and the Client Public–Private Collaboration Against COVID-19 <a class="pub-link" href="https://doi.org/10.20935/AL3284" target="_blank">[View paper]</a></div>
-
-  <div class="pub-item">Structural Importance-based Link Prediction Techniques in Social Network <a class="pub-link" href="https://eudl.eu/doi/10.4108/eai.7-1-2021.167840" target="_blank">[View paper]</a></div>
-</section>
-
-    <!-- Book Chapter -->
-    <section>
-      <h2>Book Chapter</h2>
-      <p>
-        <strong>Large-Scale Pretrained Language Models.</strong> Book chapter in
-        <em>AI-Driven Drug Design</em>, Springer Nature, 2025 (accepted).
+      <h2>Selected Publications and Manuscripts</h2>
+      <p class="pub-note">
+        Please refer to publications or my
+        <a href="https://scholar.google.com/citations?user=vmdTm7YAAAAJ" target="_blank">Google Scholar</a>
+        profile for the full list.
       </p>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures</strong></span>
+        <a class="pub-link" href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6363502" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Large-Scale Pretrained Language Models</strong></span>
+        <a class="pub-link" href="https://www.springernature.com/" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Optimize Large Language Model Prompts for Text Mining through Bayesian Optimization</strong></span>
+        <a class="pub-link" href="#" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Advancing Molecular Biology Analysis with a Retrieval-Augmented Generation Framework for Gene Interactions</strong></span>
+        <a class="pub-link" href="#" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation</strong></span>
+        <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10822181" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Gene Name Recognition in Gene Pathway Figures Using Siamese Networks</strong></span>
+        <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10803455" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>A Comprehensive Evaluation of Large Language Models in Mining Gene Interactions and Pathway Knowledge</strong></span>
+        <a class="pub-link" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/qub2.57" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Recognition of Gene Names from Gene Pathway Figures Using Siamese Network</strong></span>
+        <a class="pub-link" href="https://publications.waset.org/10013091/recognition-of-gene-names-from-gene-pathway-figures-using-siamese-network" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Annotations of Gene Pathways Images in Biomedical Publications Using Siamese Network</strong></span>
+        <a class="pub-link" href="https://publications.waset.org/10013264/annotations-of-gene-pathways-images-in-biomedical-publications-using-siamese-network" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Evaluations of Similarity-Based Link Prediction Techniques in Social Network</strong></span>
+        <a class="pub-link" href="https://jestec.taylors.edu.my/Vol%2018%20Issue%202%20April%202023/18_2_15.pdf" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>A Systematic Review of Non-functional Requirements Mapping into Architectural Styles</strong></span>
+        <a class="pub-link" href="https://beei.org/index.php/EEI/article/view/4081/3185" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Application of Machine Learning in Estimating On-tree Yield of Citrus Fruit</strong></span>
+        <a class="pub-link" href="#" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Comparative Analysis of Machine Learning Technique to Improve Software Defect Prediction</strong></span>
+        <a class="pub-link" href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/96" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Evaluation of Image Support Resolution Deep Learning Technique Based on PSNR Value</strong></span>
+        <a class="pub-link" href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/160" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Suicidal Behavior Prediction and Socioeconomic Suicide Indicators</strong></span>
+        <a class="pub-link" href="https://publications.eai.eu/index.php/phat/article/view/3175" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>A Systematic Review of Blockchain Technology in the Current Epoch: Applications, Adoption Challenges, and Opportunities</strong></span>
+        <a class="pub-link" href="https://journal.beei.org/index.php/EEI/article/view/4081" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Secure Digital Transactions in The Education Sector Using Blockchain</strong></span>
+        <a class="pub-link" href="https://eudl.eu/doi/10.4108/eai.3-11-2021.171758" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>The Role of Laboratory Technicians and the Client Public–Private Collaboration Against COVID-19</strong></span>
+        <a class="pub-link" href="https://doi.org/10.20935/AL3284" target="_blank">[View paper]</a>
+      </div>
+
+      <div class="pub-item">
+        <span class="pub-title"><strong>Structural Importance-based Link Prediction Techniques in Social Network</strong></span>
+        <a class="pub-link" href="https://eudl.eu/doi/10.4108/eai.7-1-2021.167840" target="_blank">[View paper]</a>
+      </div>
     </section>
+
+    <!-- Talks -->
+    <section>
+      <h2>Conference Presentations &amp; Invited Talks</h2>
+      <ul>
+        <li>Automated Prompt Injection Optimization for Large Language Models in Biomedical Text Mining — Invited research talk, Bond Life Sciences Center, University of Missouri (2025).</li>
+        <li>Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures — Invited research talk, Bond Life Sciences Center, University of Missouri (2025).</li>
+        <li>Optimize ChatGPT Prompts for Text Mining of Gene Relationships through Genetic Algorithm — AI Showcase Presentation, AMIA 2024 Annual Symposium, San Francisco.</li>
+        <li>Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation — Oral presentation, IEEE BIBM 2024.</li>
+        <li>Extracting Gene Pathways from Figures Using Pool-Less Active Learning — Poster presentation, AMIA 2023 Annual Symposium, New Orleans.</li>
+        <li>Recognition of Gene Names from Gene Pathway Figures Using Siamese Network — Oral presentation, WASET Bioengineering &amp; Life Sciences Conference, 2022.</li>
+      </ul>
+    </section>
+
     <!-- Academic Services -->
     <section>
       <h2>Academic Services</h2>
