@@ -1,11 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Muh-aza</title>
+  <meta charset="UTF-8" />
+  <title>Muhammad Azam | CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #020617;
+      --border: #1f2937;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --heading: #f9fafb;
+      --max-width: 840px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2933 0, #020617 55%, #020617 100%);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 1rem 3.5rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: var(--max-width);
+      background: var(--card);
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.85);
+      padding: 2.4rem 2.6rem 2.8rem;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.8rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.3rem;
+    }
+
+    .name {
+      font-size: clamp(2.0rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: var(--heading);
+    }
+
+    .tagline {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+    }
+
+    .location {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-row {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.84rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .pill a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .pill a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      border-radius: 999px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+      cursor: pointer;
+      margin-top: 0.4rem;
+    }
+
+    .btn:hover {
+      background: rgba(56,189,248,0.2);
+    }
+
+    section {
+      margin-top: 1.8rem;
+    }
+
+    section:first-of-type {
+      margin-top: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+      color: var(--heading);
+    }
+
+    h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.1rem;
+      color: var(--text-main);
+    }
+
+    .subline {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeplace {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+      margin-top: 0.2rem;
+    }
+
+    li {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .muted-list li {
+      color: var(--text-muted);
+    }
+
+    .pub-list {
+      list-style: decimal;
+      padding-left: 1.25rem;
+    }
+
+    .pub-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-title {
+      font-weight: 500;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.7rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 1.5rem 0.6rem 2.2rem;
+      }
+      .page {
+        padding: 1.6rem 1.4rem 2rem;
+        border-radius: 1.1rem;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello from Muh-aza!</h1>
-  <p>Your GitHub Page is working!</p>
+  <main class="page">
+    <header>
+      <div class="name">Muhammad Azam</div>
+      <p class="tagline">
+        Ph.D. candidate in Computer Science at the University of Missouri, working on
+        large language models, prompt optimization, RAG, and biomedical/clinical AI. :contentReference[oaicite:1]{index=1}
+      </p>
+      <p class="location">
+        Digital Biology Lab (DBL), University of Missouri – Columbia, MO, USA
+      </p>
+      <div class="contact-row">
+        <span class="pill">📧 <a href="mailto:muhammadazam@mail.missouri.edu">muhammadazam@mail.missouri.edu</a></span>
+        <span class="pill">📱 573-825-7073</span>
+        <!-- Replace # with your real links -->
+        <span class="pill">🔎 <a href="#" target="_blank">Google Scholar</a></span>
+        <span class="pill">💼 <a href="#" target="_blank">LinkedIn</a></span>
+        <span class="pill">🌐 <a href="#" target="_blank">Personal website</a></span>
+      </div>
+      <a class="btn" href="cv.pdf" target="_blank">
+        ⬇ Download full CV (PDF)
+      </a>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        I am a graduate research assistant in the Digital Biology Lab, focusing on AI for biomedical
+        and clinical applications. My work spans prompt engineering and optimization, retrieval-augmented
+        generation, Bayesian methods for prompt tuning, and multimodal systems for extracting knowledge
+        from scientific text and pathway figures. :contentReference[oaicite:2]{index=2}
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div>
+        <h3>Ph.D. in Computer Science</h3>
+        <div class="timeplace">University of Missouri, Columbia, MO &mdash; Aug 2022 – Present</div>
+        <div class="subline">Digital Biology Lab &middot; Advisor: Dong Xu</div>
+      </div>
+      <br />
+      <div>
+        <h3>MS in Software Engineering</h3>
+        <div class="timeplace">University of Agriculture, Faisalabad, Pakistan &mdash; Oct 2021</div>
+      </div>
+      <br />
+      <div>
+        <h3>Master in Information Technology</h3>
+        <div class="timeplace">Bahauddin Zakariya University, Multan, Pakistan &mdash; Sep 2016</div>
+      </div>
+      <br />
+      <div>
+        <h3>Bachelor of Science</h3>
+        <div class="timeplace">The Islamia University of Bahawalpur, Pakistan &mdash; Mar 2014</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div>
+        <h3>Graduate Research Assistant</h3>
+        <div class="timeplace">Digital Biology Lab, University of Missouri &mdash; Aug 2022 – Present</div>
+        <ul>
+          <li>Research on LLMs, RAG, and prompt engineering for biomedical and clinical tasks.</li>
+          <li>Develop pipelines for gene–disease and gene–drug extraction, and build knowledge graphs using GO and UMLS. :contentReference[oaicite:3]{index=3}</li>
+          <li>Design multimodal systems that combine literature and pathway figures for knowledge extraction.</li>
+          <li>Support instruction, mentoring, and grading for undergraduate and graduate courses.</li>
+        </ul>
+      </div>
+      <br />
+
+      <div>
+        <h3>Data Analyst (Freelance)</h3>
+        <div class="timeplace">Upwork &amp; Fiverr &mdash; Jun 2020 – Oct 2022</div>
+        <ul>
+          <li>Delivered data analysis, automation, and predictive modeling for international clients. :contentReference[oaicite:4]{index=4}</li>
+          <li>Used network modeling and link prediction for market intelligence and decision support.</li>
+          <li>Built dashboards and workflows using Python, SQL, Excel, and visualization tools.</li>
+        </ul>
+      </div>
+      <br />
+
+      <div>
+        <h3>Lecturer (Computer Science)</h3>
+        <div class="timeplace">Higher Education Department, Government of Punjab &mdash; May 2017 – Jun 2018</div>
+        <ul>
+          <li>Taught undergraduate computer science courses and supervised student projects.</li>
+          <li>Prepared lectures, labs, and assessments aligned with curriculum standards. :contentReference[oaicite:5]{index=5}</li>
+        </ul>
+      </div>
+
+      <br />
+      <div>
+        <h3>Network Engineer (Intern)</h3>
+        <div class="timeplace">Minhaj University Lahore &mdash; Jan 2017 – May 2017</div>
+        <ul>
+          <li>Assisted with configuration and troubleshooting of campus-wide network infrastructure. :contentReference[oaicite:6]{index=6}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Publications</h2>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-title">Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures.</span>
+          Journal of Biomedical and Health Informatics, 2025 (with co-authors). :contentReference[oaicite:7]{index=7}
+        </li>
+        <li>
+          <span class="pub-title">Large-Scale Pretrained Language Models.</span> In <em>AI-Driven Drug Design</em>, Springer Nature, 2025 (book chapter).
+        </li>
+        <li>
+          <span class="pub-title">Optimize Large Language Model Prompts for Text Mining through Bayesian Optimization.</span> Nature Machine Intelligence (under review). :contentReference[oaicite:8]{index=8}
+        </li>
+        <li>
+          <span class="pub-title">Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation.</span> IEEE BIBM, 2024.
+        </li>
+        <li>
+          <span class="pub-title">Gene Name Recognition in Gene Pathway Figures Using Siamese Networks.</span> MedAI Conference, 2024.
+        </li>
+      </ol>
+      <p class="subline">
+        Full list of publications available in the downloadable CV and on Google Scholar.
+      </p>
+    </section>
+
+    <section class="two-col">
+      <div>
+        <h2>Projects</h2>
+        <ul>
+          <li><strong>Social Network Link Prediction Model (SNLPM)</strong> &mdash; Similarity-based link prediction to uncover potential future connections in social and academic networks. :contentReference[oaicite:9]{index=9}</li>
+          <li><strong>Software Defect Prediction Model (SDPM)</strong> &mdash; Machine learning model to forecast software defects using complexity, history, and quality metrics.</li>
+          <li><strong>Gene Name Recognition from Pathway Figures (GNRPF)</strong> &mdash; Siamese-network–based model that extracts gene names from pathway figures for faster curation.</li>
+          <li><strong>Secure Digital Transactions in Education</strong> &mdash; Blockchain-based system using MetaMask, IPFS, and Ganache for secure educational transactions.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Skills</h2>
+        <h3>Technical &amp; Research</h3>
+        <p class="subline">
+          Prompt engineering &amp; optimization, RAG, LLMs, biomedical text &amp; figure mining, ontology mapping (GO, UMLS), gene–disease and gene–drug mining, knowledge graphs. :contentReference[oaicite:10]{index=10}
+        </p>
+        <h3 style="margin-top:0.6rem;">Programming &amp; Tools</h3>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">scikit-learn</span>
+          <span class="chip">LangChain</span>
+          <span class="chip">OpenAI API</span>
+          <span class="chip">Hugging Face</span>
+          <span class="chip">Docker</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Neo4j</span>
+          <span class="chip">R</span>
+          <span class="chip">C / C++ / C#</span>
+          <span class="chip">Git</span>
+          <span class="chip">LaTeX</span>
+        </div>
+        <h3 style="margin-top:0.7rem;">ML &amp; NLP</h3>
+        <p class="subline">
+          Deep learning, transfer learning, NER, semantic search, transformer models (BERT, BioBERT, GPT, T5, LLaMA, Mistral), few-shot &amp; zero-shot learning, computer vision. :contentReference[oaicite:11]{index=11}
+        </p>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div>
+        <h2>Awards &amp; Honors</h2>
+        <ul class="muted-list">
+          <li>Travel Award, Dept. of Electrical Engineering &amp; Computer Science, University of Missouri (2023).</li>
+          <li>Prime Minister’s Laptop Scheme, Bahauddin Zakariya University / HEC Pakistan (2017).</li>
+          <li>Academic Achievement Honor, PM Fee Reimbursement Initiative, Govt. of Pakistan / HEC (2016). :contentReference[oaicite:12]{index=12}</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Interests</h2>
+        <ul class="muted-list">
+          <li>Exploring advances in AI and LLMs.</li>
+          <li>Reading interdisciplinary scientific literature.</li>
+          <li>Ethical hacking and cybersecurity challenges.</li>
+          <li>Sports: cricket, pickleball, outdoor activities.</li>
+          <li>AI hackathons, Kaggle, and mentoring junior researchers. :contentReference[oaicite:13]{index=13}</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Muhammad Azam &middot; Built with GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
