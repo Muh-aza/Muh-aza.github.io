@@ -4,18 +4,47 @@
   <meta charset="UTF-8" />
   <title>Muhammad Azam | AI & Biomedical Informatics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
+    :root {
+      --bg: #f6f6f6;
+      --card: #ffffff;
+      --text-main: #111111;
+      --text-muted: #555555;
+      --border: #e1e1e1;
+      --link: #c72525;
+      --chip-bg: #f3f3f3;
+      --chip-text: #555555;
+    }
+
+    body[data-theme="dark"] {
+      --bg: #020617;
+      --card: #020617;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+      --link: #f97373;
+      --chip-bg: #111827;
+      --chip-text: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #fafafa;
-      color: #111;
-      margin: 0;
+      background: var(--bg);
+      color: var(--text-main);
     }
 
     a {
-      color: #c72525;
+      color: var(--link);
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
@@ -24,9 +53,29 @@
       max-width: 980px;
       margin: 0 auto;
       padding: 24px 16px 40px;
-      background: #ffffff;
-      box-shadow: 0 0 0 1px #eee;
+      background: var(--card);
       min-height: 100vh;
+      box-shadow: 0 0 0 1px var(--border);
+      position: relative;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text-main);
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
     }
 
     /* HEADER */
@@ -41,7 +90,7 @@
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #eee;
+      border: 2px solid var(--border);
       margin-bottom: 8px;
     }
 
@@ -53,7 +102,7 @@
 
     .email-line {
       font-size: 14px;
-      color: #555;
+      color: var(--text-muted);
       margin-bottom: 10px;
     }
 
@@ -62,11 +111,11 @@
       justify-content: center;
       gap: 12px;
       font-size: 14px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .header-links a {
-      color: #111;
+      color: var(--text-main);
     }
 
     .cv-link {
@@ -74,7 +123,7 @@
       font-size: 14px;
     }
 
-    /* CONTENT */
+    /* TEXT */
 
     h2 {
       font-size: 20px;
@@ -88,7 +137,7 @@
     }
 
     ul {
-      margin: 0 0 8px 22px;
+      margin: 0 0 8px 20px;
       padding: 0;
       font-size: 15px;
       line-height: 1.6;
@@ -98,13 +147,18 @@
       margin-bottom: 4px;
     }
 
+    .muted {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
     .news-list li strong {
-      color: #c72525;
+      color: var(--link);
     }
 
     hr {
       border: none;
-      border-top: 1px solid #eee;
+      border-top: 1px solid var(--border);
       margin: 24px 0;
     }
 
@@ -112,49 +166,70 @@
 
     .pub-note {
       font-size: 14px;
-      color: #555;
+      color: var(--text-muted);
       margin-bottom: 10px;
     }
 
-    ol.pub-list {
-      margin: 0 0 8px 22px;
-      padding: 0;
+    .pub-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
     }
 
-    .pub-list li {
-      margin-bottom: 10px;
-      font-size: 15px;
-      line-height: 1.6;
+    .pub-main {
+      flex: 1 1 260px;
+      min-width: 260px;
     }
 
     .pub-title {
       font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .pub-authors {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
     }
 
     .pub-venue {
+      font-size: 14px;
       font-style: italic;
+      color: var(--text-main);
     }
 
     .pub-tags {
+      flex: 0 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
       font-size: 13px;
-      margin-top: 2px;
     }
 
-    .pub-tags a {
+    .tag {
       display: inline-block;
-      margin-right: 6px;
-      padding: 1px 6px;
-      border-radius: 3px;
-      background: #f3f3f3;
-      color: #555;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--chip-bg);
+      color: var(--chip-text);
       text-decoration: none;
     }
 
-    .pub-tags a:hover {
-      background: #e5e5e5;
+    .tag:hover {
+      text-decoration: none;
+      filter: brightness(0.95);
     }
 
-    /* RESPONSIVE */
+    /* SECTIONS AFTER PUBS */
+
+    .section-list li {
+      margin-bottom: 6px;
+    }
 
     @media (max-width: 640px) {
       .page {
@@ -164,19 +239,26 @@
       .name {
         font-size: 26px;
       }
+      .pub-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
-<body>
+
+<body data-theme="light">
+
+  <!-- theme toggle -->
+  <button class="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
+
   <div class="page">
 
     <!-- HEADER -->
     <header class="header">
       <img src="azam.jpeg" alt="Muhammad Azam" class="avatar" />
       <div class="name">Muhammad Azam</div>
-      <div class="email-line">
-        muhammadazam [at] mail [dot] missouri [dot] edu
-      </div>
+      <div class="email-line">muhammadazam [at] mail [dot] missouri [dot] edu</div>
 
       <div class="header-links">
         <a href="https://scholar.google.com/citations?user=vmdTm7YAAAAJ" target="_blank">Google Scholar</a> ·
@@ -191,20 +273,19 @@
 
     <!-- ABOUT -->
     <p>
-      I am a Ph.D. candidate in Computer Science at the University of Missouri and a member of
-      the Digital Biology Lab. My research is at the intersection of large language models,
-      biomedical text and figure mining, and knowledge graph construction. I am particularly
-      interested in designing robust prompt and retrieval strategies for extracting gene–disease
-      and gene–drug relationships, and in building AI systems that support biomedical discovery
-      and clinical decision making.
+      I am a Ph.D. candidate in Computer Science at the University of Missouri and a member of the
+      Digital Biology Lab. My research lies at the intersection of large language models, biomedical
+      text and figure mining, and knowledge graph construction. I am particularly interested in
+      prompt optimization and retrieval-augmented generation for extracting gene–disease and
+      gene–drug relationships to support biomedical discovery and clinical decision making.
     </p>
 
     <!-- NEWS -->
     <h2>News</h2>
     <ul class="news-list">
-      <li><strong>[2025]</strong> Several new works on prompt optimization and LLMs for pathway figures are under review, including a chapter in <em>AI-Driven Drug Design</em> (Springer).</li>
-      <li><strong>[2024]</strong> Papers accepted at IEEE BIBM and MedAI on AI chatbots for pathway curation and gene name recognition in pathway figures.</li>
-      <li><strong>[2023]</strong> Published work on link prediction, software defect prediction, and blockchain applications in multiple international journals.</li>
+      <li><strong>[2025]</strong> Manuscripts on prompt optimization and retrieval-augmented gene interaction mining are under review, including a book chapter in <em>AI-Driven Drug Design</em> (Springer).</li>
+      <li><strong>[2024]</strong> Papers accepted at IEEE BIBM and IEEE MedAI on AI chatbots for biological pathway curation and gene name recognition from pathway figures.</li>
+      <li><strong>[2023]</strong> Published work on network link prediction, software defect prediction, and blockchain applications in several international journals.</li>
     </ul>
 
     <hr />
@@ -212,226 +293,369 @@
     <!-- PUBLICATIONS -->
     <h2>Selected Publications and Manuscripts</h2>
     <p class="pub-note">
-      Please refer to my
+      Please refer to publications or my
       <a href="https://scholar.google.com/citations?user=vmdTm7YAAAAJ" target="_blank">Google Scholar</a>
       profile for the full list.
     </p>
 
-    <ol class="pub-list">
-
-      <!-- 2025 -->
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2025).
-        <a href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6363502" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures
-        </a>.
-        <span class="pub-venue">Journal of Biomedical and Health Informatics</span>.
-        <div class="pub-tags">
-          <a href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6363502" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">Journal of Biomedical and Health Informatics, 2025.</div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6363502" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2025).
-        Large-Scale Pretrained Language Models.
-        <span class="pub-venue">AI-Driven Drug Design</span>, Springer Nature. (Accepted, book chapter)
-      </li>
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">Large-Scale Pretrained Language Models</div>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          Book chapter in <em>AI-Driven Drug Design</em>, Springer Nature, 2025 (accepted).
+        </div>
+      </div>
+      <div class="pub-tags">
+        <span class="tag">Book chapter</span>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2025).
-        Optimize Large Language Model Prompts for Text Mining through Bayesian Optimization.
-        <span class="pub-venue">Nature Machine Intelligence</span>. (Under review)
-      </li>
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
+          Optimize Large Language Model Prompts for Text Mining through Bayesian Optimization
+        </div>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">Submitted to <em>Nature Machine Intelligence</em>, 2025 (under review).</div>
+      </div>
+      <div class="pub-tags">
+        <span class="tag">Under review</span>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2025).
-        Advancing Molecular Biology Analysis with a Retrieval-Augmented Generation Framework for Gene Interactions.
-        (Manuscript under review.)
-      </li>
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
+          Advancing Molecular Biology Analysis with a Retrieval-Augmented Generation Framework for Gene Interactions
+        </div>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">Manuscript, 2025 (under review).</div>
+      </div>
+      <div class="pub-tags">
+        <span class="tag">RAG</span>
+        <span class="tag">Under review</span>
+      </div>
+    </div>
 
-      <!-- 2024 -->
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2024).
-        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10822181" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation
-        </a>.
-        <span class="pub-venue">IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</span>.
-        <div class="pub-tags">
-          <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10822181" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2024.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10822181" target="_blank">Paper</a>
+        <span class="tag">Conference</span>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2024).
-        <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10803455" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Gene Name Recognition in Gene Pathway Figures Using Siamese Networks
-        </a>.
-        <span class="pub-venue">IEEE MedAI Conference</span>.
-        <div class="pub-tags">
-          <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10803455" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">IEEE MedAI Conference, 2024.</div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10803455" target="_blank">Paper</a>
+        <span class="tag">Conference</span>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2024).
-        <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/qub2.57" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           A Comprehensive Evaluation of Large Language Models in Mining Gene Interactions and Pathway Knowledge
-        </a>.
-        <span class="pub-venue">Quantitative Biology</span>, Wiley.
-        <div class="pub-tags">
-          <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/qub2.57" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">Quantitative Biology, Wiley, 2024.</div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/qub2.57" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <!-- 2023 -->
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2023).
-        <a href="https://publications.waset.org/10013091/recognition-of-gene-names-from-gene-pathway-figures-using-siamese-network" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Recognition of Gene Names from Gene Pathway Figures Using Siamese Network
-        </a>.
-        <span class="pub-venue">WASET International Journal</span>.
-        <div class="pub-tags">
-          <a href="https://publications.waset.org/10013091/recognition-of-gene-names-from-gene-pathway-figures-using-siamese-network" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">WASET International Journal, 2023.</div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://publications.waset.org/10013091/recognition-of-gene-names-from-gene-pathway-figures-using-siamese-network" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2023).
-        <a href="https://publications.waset.org/10013264/annotations-of-gene-pathways-images-in-biomedical-publications-using-siamese-network" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Annotations of Gene Pathways Images in Biomedical Publications Using Siamese Network
-        </a>.
-        <span class="pub-venue">WASET International Journal</span>.
-        <div class="pub-tags">
-          <a href="https://publications.waset.org/10013264/annotations-of-gene-pathways-images-in-biomedical-publications-using-siamese-network" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">WASET International Journal, 2023.</div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://publications.waset.org/10013264/annotations-of-gene-pathways-images-in-biomedical-publications-using-siamese-network" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2023).
-        <a href="https://jestec.taylors.edu.my/Vol%2018%20Issue%202%20April%202023/18_2_15.pdf" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Evaluations of Similarity-Based Link Prediction Techniques in Social Network
-        </a>.
-        <span class="pub-venue">Journal of Engineering Science and Technology (JESTEC)</span>, 18(2), 1055–1082.
-        <div class="pub-tags">
-          <a href="https://jestec.taylors.edu.my/Vol%2018%20Issue%202%20April%202023/18_2_15.pdf" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          Journal of Engineering Science and Technology (JESTEC), 18(2), 1055–1082, 2023.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://jestec.taylors.edu.my/Vol%2018%20Issue%202%20April%202023/18_2_15.pdf" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2023).
-        <a href="https://beei.org/index.php/EEI/article/view/4081/3185" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           A Systematic Review of Non-functional Requirements Mapping into Architectural Styles
-        </a>.
-        <span class="pub-venue">Bulletin of Electrical Engineering and Informatics (BEEI)</span>.
-        <div class="pub-tags">
-          <a href="https://beei.org/index.php/EEI/article/view/4081/3185" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          Bulletin of Electrical Engineering and Informatics (BEEI), 2023.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://beei.org/index.php/EEI/article/view/4081/3185" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2023).
-        Application of Machine Learning in Estimating On-tree Yield of Citrus Fruit.
-        (Proceedings not specified.)
-      </li>
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
+          Application of Machine Learning in Estimating On-tree Yield of Citrus Fruit
+        </div>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">2023. (Proceedings not specified.)</div>
+      </div>
+      <div class="pub-tags">
+        <span class="tag">Machine learning</span>
+      </div>
+    </div>
 
-      <!-- 2022 -->
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2022).
-        <a href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/96" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Comparative Analysis of Machine Learning Technique to Improve Software Defect Prediction
-        </a>.
-        <span class="pub-venue">KIET Journal of Computing and Information Sciences (KJCIS)</span>.
-        <div class="pub-tags">
-          <a href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/96" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          KIET Journal of Computing and Information Sciences (KJCIS), 2022.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/96" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2022).
-        <a href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/160" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Evaluation of Image Support Resolution Deep Learning Technique Based on PSNR Value
-        </a>.
-        <span class="pub-venue">Journal of Computing and Information Sciences (KJCIS)</span>.
-        <div class="pub-tags">
-          <a href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/160" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          Journal of Computing and Information Sciences (KJCIS), 2022.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/160" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2022).
-        <a href="https://publications.eai.eu/index.php/phat/article/view/3175" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Suicidal Behavior Prediction and Socioeconomic Suicide Indicators
-        </a>.
-        <span class="pub-venue">EAI Endorsed Transactions on Pervasive Health and Technology</span>.
-        <div class="pub-tags">
-          <a href="https://publications.eai.eu/index.php/phat/article/view/3175" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          EAI Endorsed Transactions on Pervasive Health and Technology, 2022.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://publications.eai.eu/index.php/phat/article/view/3175" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2022).
-        <a href="https://journal.beei.org/index.php/EEI/article/view/4081" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           A Systematic Review of Blockchain Technology in the Current Epoch: Applications, Adoption Challenges, and Opportunities
-        </a>.
-        <span class="pub-venue">Bulletin of Electrical Engineering and Informatics (BEEI)</span>.
-        <div class="pub-tags">
-          <a href="https://journal.beei.org/index.php/EEI/article/view/4081" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          Bulletin of Electrical Engineering and Informatics (BEEI), 2022.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://journal.beei.org/index.php/EEI/article/view/4081" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <!-- 2021 -->
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2021).
-        <a href="https://eudl.eu/doi/10.4108/eai.3-11-2021.171758" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Secure Digital Transactions in The Education Sector Using Blockchain
-        </a>.
-        <span class="pub-venue">EAI Endorsed Transactions on Scalable Information Systems</span>.
-        <div class="pub-tags">
-          <a href="https://eudl.eu/doi/10.4108/eai.3-11-2021.171758" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          EAI Endorsed Transactions on Scalable Information Systems, 2021.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://eudl.eu/doi/10.4108/eai.3-11-2021.171758" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2021).
-        <a href="https://doi.org/10.20935/AL3284" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           The Role of Laboratory Technicians and the Client Public–Private Collaboration Against COVID-19
-        </a>.
-        <span class="pub-venue">Academia Letters</span>.
-        <div class="pub-tags">
-          <a href="https://doi.org/10.20935/AL3284" target="_blank">Paper</a>
         </div>
-      </li>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">Academia Letters, 2021.</div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://doi.org/10.20935/AL3284" target="_blank">Paper</a>
+      </div>
+    </div>
 
-      <li>
-        <span class="pub-title">Azam, M.</span>, et al. (2021).
-        <a href="https://eudl.eu/doi/10.4108/eai.7-1-2021.167840" target="_blank">
+    <div class="pub-item">
+      <div class="pub-main">
+        <div class="pub-title">
           Structural Importance-based Link Prediction Techniques in Social Network
-        </a>.
-        <span class="pub-venue">EAI Endorsed Transactions on Industrial Networks and Intelligent Systems (INIS)</span>.
-        <div class="pub-tags">
-          <a href="https://eudl.eu/doi/10.4108/eai.7-1-2021.167840" target="_blank">Paper</a>
         </div>
-      </li>
-    </ol>
+        <div class="pub-authors">
+          <strong>M. Azam</strong>, et al.
+        </div>
+        <div class="pub-venue">
+          EAI Endorsed Transactions on Industrial Networks and Intelligent Systems (INIS), 2021.
+        </div>
+      </div>
+      <div class="pub-tags">
+        <a class="tag" href="https://eudl.eu/doi/10.4108/eai.7-1-2021.167840" target="_blank">Paper</a>
+      </div>
+    </div>
 
     <hr />
 
-    <!-- ACADEMIC SERVICE -->
+    <!-- BOOK CHAPTER (highlight separate if you like) -->
+    <h2>Book Chapter</h2>
+    <ul class="section-list">
+      <li>
+        <strong>Large-Scale Pretrained Language Models</strong>.  
+        <span class="muted">Book chapter in <em>AI-Driven Drug Design</em>, Springer Nature, 2025 (accepted). </span>
+      </li>
+    </ul>
+
+    <!-- TALKS & CONFERENCES -->
+    <h2>Conference Presentations &amp; Invited Talks</h2>
+    <ul class="section-list">
+      <li><strong>Automated Prompt Injection Optimization for Large Language Models in Biomedical Text Mining</strong> — Invited research talk, Bond Life Sciences Center, University of Missouri (2025).</li>
+      <li><strong>Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures</strong> — Invited research talk, Bond Life Sciences Center, University of Missouri (2025).</li>
+      <li><strong>Optimize ChatGPT Prompts for Text Mining of Gene Relationships through Genetic Algorithm</strong> — AI Showcase Presentation, AMIA 2024 Annual Symposium, San Francisco.</li>
+      <li><strong>Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation</strong> — Oral presentation, IEEE BIBM 2024.</li>
+      <li><strong>Extracting Gene Pathways from Figures Using Pool-Less Active Learning</strong> — Poster presentation, AMIA 2023 Annual Symposium, New Orleans.</li>
+      <li><strong>Recognition of Gene Names from Gene Pathway Figures Using Siamese Network</strong> — Oral presentation, WASET Bioengineering &amp; Life Sciences Conference, 2022.</li>
+    </ul>
+
+    <!-- ACADEMIC SERVICES -->
     <h2>Academic Services</h2>
-    <ul>
-      <li>Reviewer for EAI journals (INIS, SIS, PHAT, CASA) and IEEE Access.</li>
-      <li>Reviewer for international journals such as the International Journal of Artificial Intelligence and Robotics Research.</li>
-      <li>Reviewer for AI, biomedical informatics, and related conference venues.</li>
+    <ul class="section-list">
+      <li>Reviewer for EAI Transactions on Industrial Networks and Intelligent Systems, Scalable Information Systems, Pervasive Health and Technology, and Context-Aware Systems and Applications.</li>
+      <li>Reviewer for IEEE Access and the International Journal of Artificial Intelligence and Robotics Research.</li>
+      <li>Reviewer for AI, biomedical informatics, and computational biology venues and workshops.</li>
     </ul>
 
     <!-- AWARDS -->
     <h2>Selected Awards</h2>
-    <ul>
-      <li>Travel Award, Department of Electrical Engineering &amp; Computer Science, University of Missouri (2023).</li>
-      <li>Prime Minister’s Laptop Scheme, Higher Education Commission, Pakistan (2017).</li>
-      <li>Academic Achievement Honor, PM Fee Reimbursement Initiative, Government of Pakistan / HEC (2016).</li>
+    <ul class="section-list">
+      <li><strong>Travel Award</strong>, Department of Electrical Engineering &amp; Computer Science, University of Missouri (2023).</li>
+      <li><strong>Prime Minister’s Laptop Scheme</strong>, Bahauddin Zakariya University / Higher Education Commission, Pakistan (2017).</li>
+      <li><strong>Academic Achievement Honor</strong>, PM Fee Reimbursement Initiative, Government of Pakistan / HEC (2016).</li>
     </ul>
 
   </div>
+
+  <script>
+    // year (if you want to add footer later, this is ready)
+    // theme toggle
+    const root = document.body;
+    const toggle = document.querySelector(".theme-toggle");
+
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      toggle.textContent = next === "dark" ? "☀" : "☾";
+    });
+  </script>
 </body>
 </html>
