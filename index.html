@@ -2,224 +2,264 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Name | CV</title>
+  <title>Muhammad Azam | CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #0b1120;
+      --bg: #f4f5fb;
       --card: #ffffff;
       --border: #e5e7eb;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.06);
       --text-main: #111827;
       --text-muted: #6b7280;
-      --heading: #0f172a;
-      --max-width: 900px;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.06);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [data-theme="dark"] {
+      --bg: #020617;
+      --card: #020617;
+      --border: #1f2937;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #e5e7eb;
+      background: var(--bg);
       color: var(--text-main);
-      display: flex;
-      justify-content: center;
-      padding: 2.5rem 1rem 3rem;
+      min-height: 100vh;
     }
 
-    .page {
+    .theme-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #2563eb, #22c55e);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f9fafb;
+      font-size: 1.2rem;
+    }
+
+    .theme-toggle:focus-visible {
+      outline: 2px solid #f97316;
+      outline-offset: 3px;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 3.5rem;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .avatar-wrapper {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.6), rgba(56, 189, 248, 0.6));
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.25);
+      margin-bottom: 1.4rem;
+    }
+
+    .avatar {
       width: 100%;
-      max-width: var(--max-width);
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #e5e7eb;
+      display: block;
+    }
+
+    .name {
+      font-size: clamp(2.1rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .headline {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin: 0 auto 0.3rem;
+    }
+
+    .meta-line {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 0.3rem;
+    }
+
+    .chip-link {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] .chip-link {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .chip-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .chip-link strong {
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      margin-top: 0.9rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #f9fafb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .layout {
       background: var(--card);
       border-radius: 1.25rem;
       border: 1px solid var(--border);
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-      padding: 2.3rem 2.6rem 2.8rem;
+      padding: 1.9rem 2rem 2.2rem;
     }
 
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1.3rem;
-      margin-bottom: 1.6rem;
-    }
-
-    .name-block {
-      max-width: 60%;
-    }
-
-    .name {
-      font-size: clamp(2rem, 4vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      color: var(--heading);
-    }
-
-    .tagline {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    .contact {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      text-align: right;
-    }
-
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.9rem;
-      font-size: 0.84rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text-muted);
-      padding: 0.32rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-    }
-
-    nav a:hover {
-      border-color: var(--border);
-      background: #f3f4f6;
-    }
-
-    .btn-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.84rem;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-download:hover {
-      background: rgba(37,99,235,0.12);
-    }
-
-    section {
-      margin-top: 1.8rem;
-    }
-
-    section:first-of-type {
-      margin-top: 1.2rem;
+    section + section {
+      margin-top: 1.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border);
     }
 
     h2 {
       font-size: 1.1rem;
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
-      color: var(--heading);
     }
 
-    h3 {
-      font-size: 0.96rem;
-      margin-bottom: 0.1rem;
-      color: var(--text-main);
-    }
-
-    .subline {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-bottom: 0.15rem;
-    }
-
-    .timeplace {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-    }
-
-    p {
+    p, li {
       font-size: 0.9rem;
       line-height: 1.6;
       color: var(--text-main);
     }
 
-    ul {
-      list-style: disc;
-      padding-left: 1.2rem;
-      margin-top: 0.2rem;
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.86rem;
     }
 
-    li {
-      font-size: 0.88rem;
-      margin-bottom: 0.25rem;
-      color: var(--text-main);
+    ul {
+      margin-top: 0.3rem;
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.2rem;
     }
 
     .two-col {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 1.6rem;
-      margin-top: 1.5rem;
     }
 
-    .chips {
+    .item-title {
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    .item-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .pill-row {
+      margin-top: 0.35rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.3rem;
     }
 
-    .chip {
-      font-size: 0.8rem;
-      padding: 0.2rem 0.7rem;
+    .pill {
       border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      background: #f9fafb;
+      padding: 0.18rem 0.7rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
     }
 
     footer {
-      margin-top: 2rem;
-      border-top: 1px solid var(--border);
-      padding-top: 0.8rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
       text-align: center;
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
 
-    @media (max-width: 780px) {
-      body {
-        padding: 1.4rem 0.6rem 2.2rem;
+    a.inline-link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a.inline-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding-top: 2.3rem;
       }
-      .page {
-        padding: 1.6rem 1.4rem 2rem;
+      .layout {
+        padding: 1.5rem 1.35rem 1.9rem;
         border-radius: 1rem;
-      }
-      .name-block {
-        max-width: 100%;
-      }
-      .contact {
-        text-align: left;
-      }
-      nav {
-        margin-top: 0.7rem;
       }
       .two-col {
         grid-template-columns: minmax(0, 1fr);
@@ -227,145 +267,181 @@
     }
   </style>
 </head>
-<body>
-  <main class="page">
-    <header>
-      <div class="name-block">
-        <div class="name">Your Name</div>
-        <p class="tagline">
-          Short professional headline – for example: “Ph.D. student in Computer Science focusing on AI and Data Science.”
-          (Edit this text to describe yourself in one sentence.)
-        </p>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#education">Education</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </nav>
+<body data-theme="light">
+  <!-- Theme toggle -->
+  <button class="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
+
+  <main>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="avatar-wrapper">
+        <!-- Upload your own image as avatar.jpg in the repo -->
+        <img src="avatar.jpg" alt="Portrait of Muhammad Azam" class="avatar" />
       </div>
-      <div class="contact">
-        <div><strong>City, Country</strong></div>
-        <div><a href="mailto:you@example.com">you@example.com</a></div>
-        <div><a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></div>
-        <a class="btn-download" href="cv.pdf" target="_blank">⬇ Download CV (PDF)</a>
-        <!-- upload cv.pdf later to make the button work -->
+      <h1 class="name">Muhammad Azam</h1>
+      <p class="headline">
+        Ph.D. candidate in Computer Science focusing on large language models, prompt optimization,
+        and AI for biomedical and clinical applications.
+      </p>
+      <p class="meta-line">
+        University of Missouri · Digital Biology Lab
+      </p>
+      <div class="hero-links">
+        <a class="chip-link" href="mailto:muhammadazam@mail.missouri.edu"><strong>Email:</strong> muhammadazam@mail.missouri.edu</a>
+        <a class="chip-link" href="#" target="_blank">Google Scholar</a>
+        <a class="chip-link" href="#" target="_blank">LinkedIn</a>
+        <a class="chip-link" href="#" target="_blank">Website</a>
       </div>
+      <a class="btn-primary" href="cv.pdf" target="_blank">⬇ Download CV (PDF)</a>
     </header>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Write 3–4 lines here about who you are and what you work on.
-        Keep it simple and professional. For example: your research areas,
-        interests, or current position.
-      </p>
-    </section>
-
-    <section id="research" class="two-col">
-      <div>
-        <h2>Research Interests</h2>
+    <!-- MAIN CONTENT -->
+    <div class="layout">
+      <section id="about">
+        <h2>About</h2>
         <p>
-          Replace this placeholder text with a short description of your research focus.
-          You can mention a few key topics or questions you are interested in.
+          I work at the intersection of large language models, information extraction,
+          and biomedical informatics. My research focuses on designing robust prompt and
+          retrieval strategies, building knowledge graphs from scientific literature and
+          pathway figures, and developing AI systems that can assist clinicians and
+          researchers with complex decision-making.
+        </p>
+      </section>
+
+      <section id="research">
+        <div class="two-col">
+          <div>
+            <h2>Research Interests</h2>
+            <p class="muted">
+              A few of the areas I enjoy working in:
+            </p>
+            <ul>
+              <li>Large language models, prompt engineering, and prompt optimization.</li>
+              <li>Retrieval-augmented generation and biomedical text / figure mining.</li>
+              <li>Knowledge graphs and representation learning for genes, diseases, and drugs.</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Core Skills</h2>
+            <p class="muted">Methods &amp; tools I use regularly.</p>
+            <div class="pill-row">
+              <span class="pill">Python</span>
+              <span class="pill">PyTorch / TensorFlow</span>
+              <span class="pill">Machine Learning</span>
+              <span class="pill">NLP &amp; LLMs</span>
+              <span class="pill">RAG</span>
+              <span class="pill">Knowledge Graphs</span>
+              <span class="pill">Docker</span>
+              <span class="pill">SQL / Neo4j</span>
+              <span class="pill">Git</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="two-col">
+          <div>
+            <h2>Experience</h2>
+
+            <div>
+              <div class="item-title">Graduate Research Assistant</div>
+              <div class="item-meta">Digital Biology Lab · University of Missouri</div>
+              <ul>
+                <li>Design and evaluate LLM-based methods for extracting knowledge from biomedical text and pathway figures.</li>
+                <li>Develop pipelines for entity / relation extraction and downstream knowledge graph construction.</li>
+              </ul>
+            </div>
+            <br />
+
+            <div>
+              <div class="item-title">Data Analyst (Freelance)</div>
+              <div class="item-meta">Upwork &amp; Fiverr</div>
+              <ul>
+                <li>Delivered data analysis, automation, and predictive modeling projects for international clients.</li>
+              </ul>
+            </div>
+
+            <br />
+
+            <div>
+              <div class="item-title">Teaching &amp; Mentoring</div>
+              <div class="item-meta">Lecturer &amp; research mentor</div>
+              <ul>
+                <li>Taught undergraduate computer science courses and supervised student projects.</li>
+                <li>Mentored students working on AI and biomedical data science topics.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h2>Education</h2>
+            <div>
+              <div class="item-title">Ph.D., Computer Science</div>
+              <div class="item-meta">University of Missouri, Columbia</div>
+            </div>
+            <br />
+            <div>
+              <div class="item-title">MS, Software Engineering</div>
+              <div class="item-meta">University of Agriculture, Faisalabad</div>
+            </div>
+            <br />
+            <div>
+              <div class="item-title">Master, Information Technology</div>
+              <div class="item-meta">Bahauddin Zakariya University</div>
+            </div>
+            <br />
+            <div>
+              <div class="item-title">Bachelor of Science</div>
+              <div class="item-meta">The Islamia University of Bahawalpur</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <h2>Selected Work</h2>
+        <p class="muted">
+          A sample of recent work. For a full list, please see my Google Scholar profile.
         </p>
         <ul>
-          <li>Example topic 1 (e.g., “Large language models and prompt optimization”).</li>
-          <li>Example topic 2 (e.g., “Biomedical text mining and knowledge graphs”).</li>
-          <li>Example topic 3 (e.g., “Machine learning for decision support”).</li>
+          <li>Applications of large language models and prompt optimization to knowledge extraction from biological pathway figures.</li>
+          <li>Methods for optimizing prompts and retrieval strategies for biomedical text mining and clinical decision support.</li>
+          <li>Projects on social network link prediction, software defect prediction, and blockchain-based systems.</li>
         </ul>
-      </div>
-      <div>
-        <h2>Skills</h2>
-        <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">Machine Learning</span>
-          <span class="chip">Deep Learning</span>
-          <span class="chip">NLP</span>
-          <span class="chip">Data Analysis</span>
-          <span class="chip">Git / GitHub</span>
-          <!-- edit or add your own chips -->
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="publications">
-      <h2>Selected Publications</h2>
-      <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:0.4rem;">
-        Add 3–5 key publications here (or conference papers, preprints, or major projects).
-      </p>
-      <ul>
-        <li><strong>Title of your paper or project.</strong> Venue / Journal / Conference, Year.</li>
-        <li><strong>Another important work.</strong> Short description or citation information.</li>
-        <li><strong>Optional third item.</strong> You can remove or add items as needed.</li>
-      </ul>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div>
-        <h3>Your Most Recent Degree</h3>
-        <div class="subline">University Name &middot; City, Country</div>
-        <div class="timeplace">Start Year – End Year (or “Present”)</div>
-      </div>
-      <br />
-      <div>
-        <h3>Previous Degree</h3>
-        <div class="subline">University Name &middot; City, Country</div>
-        <div class="timeplace">Start Year – End Year</div>
-      </div>
-      <!-- add or remove blocks as needed -->
-    </section>
-
-    <section id="experience" class="two-col">
-      <div>
-        <h2>Experience</h2>
-        <div>
-          <h3>Role / Position</h3>
-          <div class="subline">Organization / Company</div>
-          <div class="timeplace">Start – End</div>
-          <ul>
-            <li>Short bullet about what you did or what you are doing.</li>
-            <li>Another bullet focusing on impact or responsibilities.</li>
-          </ul>
-        </div>
-        <br />
-        <div>
-          <h3>Another Role</h3>
-          <div class="subline">Organization / Company</div>
-          <div class="timeplace">Start – End</div>
-          <ul>
-            <li>Customize these bullets with your own experience.</li>
-          </ul>
-        </div>
-      </div>
-      <div>
-        <h2>Highlights</h2>
-        <ul>
-          <li>Award, scholarship, or notable achievement.</li>
-          <li>Conference talk or invited presentation.</li>
-          <li>Open-source contribution or side project.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        The easiest way to reach me is by email:
-        <a href="mailto:you@example.com">you@example.com</a>.
-        You can also include links to LinkedIn, Google Scholar, or other profiles here.
-      </p>
-    </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          The easiest way to reach me is via email:
+          <a class="inline-link" href="mailto:muhammadazam@mail.missouri.edu">
+            muhammadazam@mail.missouri.edu
+          </a>.
+          I am happy to talk about collaborations, research opportunities, and applied AI projects.
+        </p>
+      </section>
+    </div>
 
     <footer>
-      © <span id="year"></span> Your Name · Built with GitHub Pages
+      © <span id="year"></span> Muhammad Azam · Built with GitHub Pages
     </footer>
   </main>
 
   <script>
+    // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // theme toggle
+    const root = document.body;
+    const toggle = document.querySelector(".theme-toggle");
+
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      toggle.textContent = next === "dark" ? "☀" : "☾";
+    });
   </script>
 </body>
 </html>
