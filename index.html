@@ -13,6 +13,7 @@
       --text-muted: #6b7280;
       --accent: #2563eb;
       --accent-soft: rgba(37, 99, 235, 0.06);
+      --nav-bg: rgba(244, 245, 251, 0.9);
     }
 
     [data-theme="dark"] {
@@ -23,12 +24,17 @@
       --text-muted: #9ca3af;
       --accent: #38bdf8;
       --accent-soft: rgba(56, 189, 248, 0.12);
+      --nav-bg: rgba(2, 6, 23, 0.9);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -38,10 +44,57 @@
       min-height: 100vh;
     }
 
+    /* Top Nav */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0.55rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .top-nav-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .top-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .top-nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .top-nav-links a:hover {
+      border-color: var(--border);
+      color: var(--accent);
+    }
+
+    /* Theme toggle */
     .theme-toggle {
       position: fixed;
-      top: 16px;
-      right: 16px;
+      bottom: 18px;
+      right: 18px;
       width: 44px;
       height: 44px;
       border-radius: 999px;
@@ -56,15 +109,11 @@
       font-size: 1.2rem;
     }
 
-    .theme-toggle:focus-visible {
-      outline: 2px solid #f97316;
-      outline-offset: 3px;
-    }
-
+    /* Main Layout */
     main {
       max-width: 960px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 3.5rem;
+      padding: 2.4rem 1.5rem 3.5rem;
     }
 
     .hero {
@@ -72,7 +121,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.4rem;
     }
 
     .avatar-wrapper {
@@ -114,37 +163,6 @@
       margin-bottom: 0.8rem;
     }
 
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.7rem;
-      margin-top: 0.3rem;
-    }
-
-    .chip-link {
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.85);
-    }
-
-    [data-theme="dark"] .chip-link {
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .chip-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .chip-link strong {
-      font-weight: 500;
-    }
-
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -161,10 +179,6 @@
       font-weight: 500;
     }
 
-    .btn-primary:hover {
-      background: #1d4ed8;
-    }
-
     .layout {
       background: var(--card);
       border-radius: 1.25rem;
@@ -173,10 +187,8 @@
       padding: 1.9rem 2rem 2.2rem;
     }
 
-    section + section {
-      margin-top: 1.6rem;
-      padding-top: 1.4rem;
-      border-top: 1px solid var(--border);
+    section {
+      scroll-margin-top: 5rem;
     }
 
     h2 {
@@ -185,56 +197,10 @@
       margin-bottom: 0.5rem;
     }
 
-    p, li {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: var(--text-main);
-    }
-
-    .muted {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-    }
-
-    ul {
-      margin-top: 0.3rem;
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.2rem;
-    }
-
     .two-col {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 1.6rem;
-    }
-
-    .item-title {
-      font-weight: 600;
-      font-size: 0.94rem;
-    }
-
-    .item-meta {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .pill-row {
-      margin-top: 0.35rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .pill {
-      border-radius: 999px;
-      padding: 0.18rem 0.7rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.78rem;
     }
 
     footer {
@@ -243,184 +209,84 @@
       font-size: 0.78rem;
       color: var(--text-muted);
     }
-
-    a.inline-link {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a.inline-link:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 720px) {
-      main {
-        padding-top: 2.3rem;
-      }
-      .layout {
-        padding: 1.5rem 1.35rem 1.9rem;
-        border-radius: 1rem;
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
   </style>
 </head>
 <body data-theme="light">
+
+  <!-- Sticky top navigation -->
+  <div class="top-nav">
+    <div class="top-nav-inner">
+      <div class="top-nav-title">Muhammad Azam</div>
+      <nav class="top-nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
   <!-- Theme toggle -->
   <button class="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
 
   <main>
+
     <!-- HERO -->
     <header class="hero">
       <div class="avatar-wrapper">
-        <!-- Upload your own image as avatar.jpg in the repo -->
-        <img src="avatar.jpg" alt="Portrait of Muhammad Azam" class="avatar" />
+        <img src="azam.jpeg" alt="Muhammad Azam" class="avatar" />
       </div>
       <h1 class="name">Muhammad Azam</h1>
       <p class="headline">
-        Ph.D. candidate in Computer Science focusing on large language models, prompt optimization,
-        and AI for biomedical and clinical applications.
+        Ph.D. candidate in Computer Science focusing on large language models.
       </p>
       <p class="meta-line">
         University of Missouri · Digital Biology Lab
       </p>
-      <div class="hero-links">
-        <a class="chip-link" href="mailto:muhammadazam@mail.missouri.edu"><strong>Email:</strong> muhammadazam@mail.missouri.edu</a>
-        <a class="chip-link" href="#" target="_blank">Google Scholar</a>
-        <a class="chip-link" href="#" target="_blank">LinkedIn</a>
-        <a class="chip-link" href="#" target="_blank">Website</a>
-      </div>
-      <a class="btn-primary" href="cv.pdf" target="_blank">⬇ Download CV (PDF)</a>
+      <a class="btn-primary" href="azamcv.pdf" target="_blank">⬇ Download CV (PDF)</a>
     </header>
 
     <!-- MAIN CONTENT -->
     <div class="layout">
+
       <section id="about">
         <h2>About</h2>
-        <p>
-          I work at the intersection of large language models, information extraction,
-          and biomedical informatics. My research focuses on designing robust prompt and
-          retrieval strategies, building knowledge graphs from scientific literature and
-          pathway figures, and developing AI systems that can assist clinicians and
-          researchers with complex decision-making.
-        </p>
+        <p>I work at the intersection of LLMs and biomedical informatics.</p>
       </section>
 
       <section id="research">
-        <div class="two-col">
-          <div>
-            <h2>Research Interests</h2>
-            <p class="muted">
-              A few of the areas I enjoy working in:
-            </p>
-            <ul>
-              <li>Large language models, prompt engineering, and prompt optimization.</li>
-              <li>Retrieval-augmented generation and biomedical text / figure mining.</li>
-              <li>Knowledge graphs and representation learning for genes, diseases, and drugs.</li>
-            </ul>
-          </div>
-          <div>
-            <h2>Core Skills</h2>
-            <p class="muted">Methods &amp; tools I use regularly.</p>
-            <div class="pill-row">
-              <span class="pill">Python</span>
-              <span class="pill">PyTorch / TensorFlow</span>
-              <span class="pill">Machine Learning</span>
-              <span class="pill">NLP &amp; LLMs</span>
-              <span class="pill">RAG</span>
-              <span class="pill">Knowledge Graphs</span>
-              <span class="pill">Docker</span>
-              <span class="pill">SQL / Neo4j</span>
-              <span class="pill">Git</span>
-            </div>
-          </div>
-        </div>
+        <h2>Research Interests</h2>
+        <ul>
+          <li>LLMs & Prompt Engineering</li>
+          <li>Retrieval-Augmented Generation</li>
+          <li>Knowledge Graphs</li>
+        </ul>
       </section>
 
       <section id="experience">
-        <div class="two-col">
-          <div>
-            <h2>Experience</h2>
+        <h2>Experience</h2>
+        <p>Graduate Research Assistant — University of Missouri</p>
+      </section>
 
-            <div>
-              <div class="item-title">Graduate Research Assistant</div>
-              <div class="item-meta">Digital Biology Lab · University of Missouri</div>
-              <ul>
-                <li>Design and evaluate LLM-based methods for extracting knowledge from biomedical text and pathway figures.</li>
-                <li>Develop pipelines for entity / relation extraction and downstream knowledge graph construction.</li>
-              </ul>
-            </div>
-            <br />
-
-            <div>
-              <div class="item-title">Data Analyst (Freelance)</div>
-              <div class="item-meta">Upwork &amp; Fiverr</div>
-              <ul>
-                <li>Delivered data analysis, automation, and predictive modeling projects for international clients.</li>
-              </ul>
-            </div>
-
-            <br />
-
-            <div>
-              <div class="item-title">Teaching &amp; Mentoring</div>
-              <div class="item-meta">Lecturer &amp; research mentor</div>
-              <ul>
-                <li>Taught undergraduate computer science courses and supervised student projects.</li>
-                <li>Mentored students working on AI and biomedical data science topics.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <h2>Education</h2>
-            <div>
-              <div class="item-title">Ph.D., Computer Science</div>
-              <div class="item-meta">University of Missouri, Columbia</div>
-            </div>
-            <br />
-            <div>
-              <div class="item-title">MS, Software Engineering</div>
-              <div class="item-meta">University of Agriculture, Faisalabad</div>
-            </div>
-            <br />
-            <div>
-              <div class="item-title">Master, Information Technology</div>
-              <div class="item-meta">Bahauddin Zakariya University</div>
-            </div>
-            <br />
-            <div>
-              <div class="item-title">Bachelor of Science</div>
-              <div class="item-meta">The Islamia University of Bahawalpur</div>
-            </div>
-          </div>
-        </div>
+      <section id="education">
+        <h2>Education</h2>
+        <p>Ph.D. Computer Science — University of Missouri</p>
       </section>
 
       <section id="work">
         <h2>Selected Work</h2>
-        <p class="muted">
-          A sample of recent work. For a full list, please see my Google Scholar profile.
-        </p>
         <ul>
-          <li>Applications of large language models and prompt optimization to knowledge extraction from biological pathway figures.</li>
-          <li>Methods for optimizing prompts and retrieval strategies for biomedical text mining and clinical decision support.</li>
-          <li>Projects on social network link prediction, software defect prediction, and blockchain-based systems.</li>
+          <li>Applying LLMs to biomedical pathway knowledge extraction.</li>
         </ul>
       </section>
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>
-          The easiest way to reach me is via email:
-          <a class="inline-link" href="mailto:muhammadazam@mail.missouri.edu">
-            muhammadazam@mail.missouri.edu
-          </a>.
-          I am happy to talk about collaborations, research opportunities, and applied AI projects.
-        </p>
+        <p>Email: muhammadazam@mail.missouri.edu</p>
       </section>
+
     </div>
 
     <footer>
@@ -429,18 +295,13 @@
   </main>
 
   <script>
-    // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // theme toggle
     const root = document.body;
     const toggle = document.querySelector(".theme-toggle");
-
     toggle.addEventListener("click", () => {
-      const current = root.getAttribute("data-theme");
-      const next = current === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      toggle.textContent = next === "dark" ? "☀" : "☾";
+      const theme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", theme);
+      toggle.textContent = theme === "dark" ? "☀" : "☾";
     });
   </script>
 </body>
