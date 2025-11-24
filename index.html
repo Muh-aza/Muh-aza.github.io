@@ -2,115 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Muhammad Azam | CV</title>
+  <title>Your Name | CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
       --bg: #0b1120;
-      --card: #020617;
-      --border: #1f2937;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --heading: #f9fafb;
-      --max-width: 840px;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.06);
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --heading: #0f172a;
+      --max-width: 900px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2933 0, #020617 55%, #020617 100%);
+      background: #e5e7eb;
       color: var(--text-main);
       display: flex;
       justify-content: center;
-      padding: 2.5rem 1rem 3.5rem;
+      padding: 2.5rem 1rem 3rem;
     }
 
     .page {
       width: 100%;
       max-width: var(--max-width);
       background: var(--card);
-      border-radius: 1.5rem;
+      border-radius: 1.25rem;
       border: 1px solid var(--border);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.85);
-      padding: 2.4rem 2.6rem 2.8rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+      padding: 2.3rem 2.6rem 2.8rem;
     }
 
     header {
       display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
       border-bottom: 1px solid var(--border);
       padding-bottom: 1.3rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .name-block {
+      max-width: 60%;
     }
 
     .name {
-      font-size: clamp(2.0rem, 4vw, 2.4rem);
+      font-size: clamp(2rem, 4vw, 2.4rem);
       font-weight: 700;
-      letter-spacing: -0.035em;
+      letter-spacing: -0.04em;
       color: var(--heading);
     }
 
     .tagline {
       font-size: 0.98rem;
       color: var(--text-muted);
-      max-width: 40rem;
+      margin-top: 0.2rem;
     }
 
-    .location {
-      font-size: 0.9rem;
+    .contact {
+      font-size: 0.86rem;
       color: var(--text-muted);
+      text-align: right;
     }
 
-    .contact-row {
-      margin-top: 0.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      font-size: 0.84rem;
-    }
-
-    .pill {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 0.35rem 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      background: rgba(15, 23, 42, 0.8);
-    }
-
-    .pill a {
+    .contact a {
       color: var(--accent);
       text-decoration: none;
     }
 
-    .pill a:hover {
+    .contact a:hover {
       text-decoration: underline;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      border-radius: 999px;
-      padding: 0.5rem 1.1rem;
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      background: var(--accent-soft);
-      cursor: pointer;
-      margin-top: 0.4rem;
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+      font-size: 0.84rem;
     }
 
-    .btn:hover {
-      background: rgba(56,189,248,0.2);
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 0.32rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover {
+      border-color: var(--border);
+      background: #f3f4f6;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.84rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-download:hover {
+      background: rgba(37,99,235,0.12);
     }
 
     section {
@@ -122,22 +130,22 @@
     }
 
     h2 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       letter-spacing: -0.02em;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       color: var(--heading);
     }
 
     h3 {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       margin-bottom: 0.1rem;
       color: var(--text-main);
     }
 
     .subline {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
     }
 
     .timeplace {
@@ -152,12 +160,6 @@
       color: var(--text-main);
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 1.5rem;
-    }
-
     ul {
       list-style: disc;
       padding-left: 1.2rem;
@@ -166,25 +168,15 @@
 
     li {
       font-size: 0.88rem;
-      color: var(--text-main);
       margin-bottom: 0.25rem;
+      color: var(--text-main);
     }
 
-    .muted-list li {
-      color: var(--text-muted);
-    }
-
-    .pub-list {
-      list-style: decimal;
-      padding-left: 1.25rem;
-    }
-
-    .pub-list li {
-      margin-bottom: 0.4rem;
-    }
-
-    .pub-title {
-      font-weight: 500;
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      margin-top: 1.5rem;
     }
 
     .chips {
@@ -196,10 +188,11 @@
 
     .chip {
       font-size: 0.8rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 999px;
       border: 1px solid var(--border);
-      padding: 0.2rem 0.7rem;
       color: var(--text-muted);
+      background: #f9fafb;
     }
 
     footer {
@@ -211,13 +204,22 @@
       text-align: center;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
       body {
-        padding: 1.5rem 0.6rem 2.2rem;
+        padding: 1.4rem 0.6rem 2.2rem;
       }
       .page {
         padding: 1.6rem 1.4rem 2rem;
-        border-radius: 1.1rem;
+        border-radius: 1rem;
+      }
+      .name-block {
+        max-width: 100%;
+      }
+      .contact {
+        text-align: left;
+      }
+      nav {
+        margin-top: 0.7rem;
       }
       .two-col {
         grid-template-columns: minmax(0, 1fr);
@@ -228,197 +230,137 @@
 <body>
   <main class="page">
     <header>
-      <div class="name">Muhammad Azam</div>
-      <p class="tagline">
-        Ph.D. candidate in Computer Science at the University of Missouri, working on
-        large language models, prompt optimization, RAG, and biomedical/clinical AI. :contentReference[oaicite:1]{index=1}
-      </p>
-      <p class="location">
-        Digital Biology Lab (DBL), University of Missouri – Columbia, MO, USA
-      </p>
-      <div class="contact-row">
-        <span class="pill">📧 <a href="mailto:muhammadazam@mail.missouri.edu">muhammadazam@mail.missouri.edu</a></span>
-        <span class="pill">📱 573-825-7073</span>
-        <!-- Replace # with your real links -->
-        <span class="pill">🔎 <a href="#" target="_blank">Google Scholar</a></span>
-        <span class="pill">💼 <a href="#" target="_blank">LinkedIn</a></span>
-        <span class="pill">🌐 <a href="#" target="_blank">Personal website</a></span>
+      <div class="name-block">
+        <div class="name">Your Name</div>
+        <p class="tagline">
+          Short professional headline – for example: “Ph.D. student in Computer Science focusing on AI and Data Science.”
+          (Edit this text to describe yourself in one sentence.)
+        </p>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
-      <a class="btn" href="cv.pdf" target="_blank">
-        ⬇ Download full CV (PDF)
-      </a>
+      <div class="contact">
+        <div><strong>City, Country</strong></div>
+        <div><a href="mailto:you@example.com">you@example.com</a></div>
+        <div><a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></div>
+        <a class="btn-download" href="cv.pdf" target="_blank">⬇ Download CV (PDF)</a>
+        <!-- upload cv.pdf later to make the button work -->
+      </div>
     </header>
 
-    <section>
+    <section id="about">
       <h2>About</h2>
       <p>
-        I am a graduate research assistant in the Digital Biology Lab, focusing on AI for biomedical
-        and clinical applications. My work spans prompt engineering and optimization, retrieval-augmented
-        generation, Bayesian methods for prompt tuning, and multimodal systems for extracting knowledge
-        from scientific text and pathway figures. :contentReference[oaicite:2]{index=2}
+        Write 3–4 lines here about who you are and what you work on.
+        Keep it simple and professional. For example: your research areas,
+        interests, or current position.
       </p>
     </section>
 
-    <section>
-      <h2>Education</h2>
+    <section id="research" class="two-col">
       <div>
-        <h3>Ph.D. in Computer Science</h3>
-        <div class="timeplace">University of Missouri, Columbia, MO &mdash; Aug 2022 – Present</div>
-        <div class="subline">Digital Biology Lab &middot; Advisor: Dong Xu</div>
-      </div>
-      <br />
-      <div>
-        <h3>MS in Software Engineering</h3>
-        <div class="timeplace">University of Agriculture, Faisalabad, Pakistan &mdash; Oct 2021</div>
-      </div>
-      <br />
-      <div>
-        <h3>Master in Information Technology</h3>
-        <div class="timeplace">Bahauddin Zakariya University, Multan, Pakistan &mdash; Sep 2016</div>
-      </div>
-      <br />
-      <div>
-        <h3>Bachelor of Science</h3>
-        <div class="timeplace">The Islamia University of Bahawalpur, Pakistan &mdash; Mar 2014</div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Experience</h2>
-
-      <div>
-        <h3>Graduate Research Assistant</h3>
-        <div class="timeplace">Digital Biology Lab, University of Missouri &mdash; Aug 2022 – Present</div>
+        <h2>Research Interests</h2>
+        <p>
+          Replace this placeholder text with a short description of your research focus.
+          You can mention a few key topics or questions you are interested in.
+        </p>
         <ul>
-          <li>Research on LLMs, RAG, and prompt engineering for biomedical and clinical tasks.</li>
-          <li>Develop pipelines for gene–disease and gene–drug extraction, and build knowledge graphs using GO and UMLS. :contentReference[oaicite:3]{index=3}</li>
-          <li>Design multimodal systems that combine literature and pathway figures for knowledge extraction.</li>
-          <li>Support instruction, mentoring, and grading for undergraduate and graduate courses.</li>
+          <li>Example topic 1 (e.g., “Large language models and prompt optimization”).</li>
+          <li>Example topic 2 (e.g., “Biomedical text mining and knowledge graphs”).</li>
+          <li>Example topic 3 (e.g., “Machine learning for decision support”).</li>
         </ul>
       </div>
-      <br />
-
-      <div>
-        <h3>Data Analyst (Freelance)</h3>
-        <div class="timeplace">Upwork &amp; Fiverr &mdash; Jun 2020 – Oct 2022</div>
-        <ul>
-          <li>Delivered data analysis, automation, and predictive modeling for international clients. :contentReference[oaicite:4]{index=4}</li>
-          <li>Used network modeling and link prediction for market intelligence and decision support.</li>
-          <li>Built dashboards and workflows using Python, SQL, Excel, and visualization tools.</li>
-        </ul>
-      </div>
-      <br />
-
-      <div>
-        <h3>Lecturer (Computer Science)</h3>
-        <div class="timeplace">Higher Education Department, Government of Punjab &mdash; May 2017 – Jun 2018</div>
-        <ul>
-          <li>Taught undergraduate computer science courses and supervised student projects.</li>
-          <li>Prepared lectures, labs, and assessments aligned with curriculum standards. :contentReference[oaicite:5]{index=5}</li>
-        </ul>
-      </div>
-
-      <br />
-      <div>
-        <h3>Network Engineer (Intern)</h3>
-        <div class="timeplace">Minhaj University Lahore &mdash; Jan 2017 – May 2017</div>
-        <ul>
-          <li>Assisted with configuration and troubleshooting of campus-wide network infrastructure. :contentReference[oaicite:6]{index=6}</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Selected Publications</h2>
-      <ol class="pub-list">
-        <li>
-          <span class="pub-title">Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures.</span>
-          Journal of Biomedical and Health Informatics, 2025 (with co-authors). :contentReference[oaicite:7]{index=7}
-        </li>
-        <li>
-          <span class="pub-title">Large-Scale Pretrained Language Models.</span> In <em>AI-Driven Drug Design</em>, Springer Nature, 2025 (book chapter).
-        </li>
-        <li>
-          <span class="pub-title">Optimize Large Language Model Prompts for Text Mining through Bayesian Optimization.</span> Nature Machine Intelligence (under review). :contentReference[oaicite:8]{index=8}
-        </li>
-        <li>
-          <span class="pub-title">Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation.</span> IEEE BIBM, 2024.
-        </li>
-        <li>
-          <span class="pub-title">Gene Name Recognition in Gene Pathway Figures Using Siamese Networks.</span> MedAI Conference, 2024.
-        </li>
-      </ol>
-      <p class="subline">
-        Full list of publications available in the downloadable CV and on Google Scholar.
-      </p>
-    </section>
-
-    <section class="two-col">
-      <div>
-        <h2>Projects</h2>
-        <ul>
-          <li><strong>Social Network Link Prediction Model (SNLPM)</strong> &mdash; Similarity-based link prediction to uncover potential future connections in social and academic networks. :contentReference[oaicite:9]{index=9}</li>
-          <li><strong>Software Defect Prediction Model (SDPM)</strong> &mdash; Machine learning model to forecast software defects using complexity, history, and quality metrics.</li>
-          <li><strong>Gene Name Recognition from Pathway Figures (GNRPF)</strong> &mdash; Siamese-network–based model that extracts gene names from pathway figures for faster curation.</li>
-          <li><strong>Secure Digital Transactions in Education</strong> &mdash; Blockchain-based system using MetaMask, IPFS, and Ganache for secure educational transactions.</li>
-        </ul>
-      </div>
-
       <div>
         <h2>Skills</h2>
-        <h3>Technical &amp; Research</h3>
-        <p class="subline">
-          Prompt engineering &amp; optimization, RAG, LLMs, biomedical text &amp; figure mining, ontology mapping (GO, UMLS), gene–disease and gene–drug mining, knowledge graphs. :contentReference[oaicite:10]{index=10}
-        </p>
-        <h3 style="margin-top:0.6rem;">Programming &amp; Tools</h3>
         <div class="chips">
           <span class="chip">Python</span>
-          <span class="chip">PyTorch</span>
-          <span class="chip">TensorFlow</span>
-          <span class="chip">NumPy</span>
-          <span class="chip">Pandas</span>
-          <span class="chip">scikit-learn</span>
-          <span class="chip">LangChain</span>
-          <span class="chip">OpenAI API</span>
-          <span class="chip">Hugging Face</span>
-          <span class="chip">Docker</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Neo4j</span>
-          <span class="chip">R</span>
-          <span class="chip">C / C++ / C#</span>
-          <span class="chip">Git</span>
-          <span class="chip">LaTeX</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Deep Learning</span>
+          <span class="chip">NLP</span>
+          <span class="chip">Data Analysis</span>
+          <span class="chip">Git / GitHub</span>
+          <!-- edit or add your own chips -->
         </div>
-        <h3 style="margin-top:0.7rem;">ML &amp; NLP</h3>
-        <p class="subline">
-          Deep learning, transfer learning, NER, semantic search, transformer models (BERT, BioBERT, GPT, T5, LLaMA, Mistral), few-shot &amp; zero-shot learning, computer vision. :contentReference[oaicite:11]{index=11}
-        </p>
       </div>
     </section>
 
-    <section class="two-col">
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:0.4rem;">
+        Add 3–5 key publications here (or conference papers, preprints, or major projects).
+      </p>
+      <ul>
+        <li><strong>Title of your paper or project.</strong> Venue / Journal / Conference, Year.</li>
+        <li><strong>Another important work.</strong> Short description or citation information.</li>
+        <li><strong>Optional third item.</strong> You can remove or add items as needed.</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
       <div>
-        <h2>Awards &amp; Honors</h2>
-        <ul class="muted-list">
-          <li>Travel Award, Dept. of Electrical Engineering &amp; Computer Science, University of Missouri (2023).</li>
-          <li>Prime Minister’s Laptop Scheme, Bahauddin Zakariya University / HEC Pakistan (2017).</li>
-          <li>Academic Achievement Honor, PM Fee Reimbursement Initiative, Govt. of Pakistan / HEC (2016). :contentReference[oaicite:12]{index=12}</li>
-        </ul>
+        <h3>Your Most Recent Degree</h3>
+        <div class="subline">University Name &middot; City, Country</div>
+        <div class="timeplace">Start Year – End Year (or “Present”)</div>
+      </div>
+      <br />
+      <div>
+        <h3>Previous Degree</h3>
+        <div class="subline">University Name &middot; City, Country</div>
+        <div class="timeplace">Start Year – End Year</div>
+      </div>
+      <!-- add or remove blocks as needed -->
+    </section>
+
+    <section id="experience" class="two-col">
+      <div>
+        <h2>Experience</h2>
+        <div>
+          <h3>Role / Position</h3>
+          <div class="subline">Organization / Company</div>
+          <div class="timeplace">Start – End</div>
+          <ul>
+            <li>Short bullet about what you did or what you are doing.</li>
+            <li>Another bullet focusing on impact or responsibilities.</li>
+          </ul>
+        </div>
+        <br />
+        <div>
+          <h3>Another Role</h3>
+          <div class="subline">Organization / Company</div>
+          <div class="timeplace">Start – End</div>
+          <ul>
+            <li>Customize these bullets with your own experience.</li>
+          </ul>
+        </div>
       </div>
       <div>
-        <h2>Interests</h2>
-        <ul class="muted-list">
-          <li>Exploring advances in AI and LLMs.</li>
-          <li>Reading interdisciplinary scientific literature.</li>
-          <li>Ethical hacking and cybersecurity challenges.</li>
-          <li>Sports: cricket, pickleball, outdoor activities.</li>
-          <li>AI hackathons, Kaggle, and mentoring junior researchers. :contentReference[oaicite:13]{index=13}</li>
+        <h2>Highlights</h2>
+        <ul>
+          <li>Award, scholarship, or notable achievement.</li>
+          <li>Conference talk or invited presentation.</li>
+          <li>Open-source contribution or side project.</li>
         </ul>
       </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        The easiest way to reach me is by email:
+        <a href="mailto:you@example.com">you@example.com</a>.
+        You can also include links to LinkedIn, Google Scholar, or other profiles here.
+      </p>
     </section>
 
     <footer>
-      © <span id="year"></span> Muhammad Azam &middot; Built with GitHub Pages
+      © <span id="year"></span> Your Name · Built with GitHub Pages
     </footer>
   </main>
 
