@@ -268,55 +268,52 @@
 }
 /* AI & LLM skills card */
 .ai-skill-card {
-  margin-top: 8px;
-  padding: 10px 12px;
-  border-radius: 10px;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  background: linear-gradient(135deg, rgba(248,113,113,0.10), rgba(248,250,252,0.6));
+  background: linear-gradient(135deg, rgba(248,113,113,0.10), rgba(248,250,252,0.7));
 }
 
 body[data-theme="dark"] .ai-skill-card {
-  background: linear-gradient(135deg, rgba(248,113,113,0.08), rgba(15,23,42,0.9));
+  background: linear-gradient(135deg, rgba(248,113,113,0.05), rgba(15,23,42,0.95));
 }
 
-.ai-skill-text {
-  font-size: 0.86rem;
-  line-height: 1.6;
-  color: var(--text-main);
-  text-align: justify;
-  margin-bottom: 8px;
-}
-
-/* skill chips layout */
+/* layout of skill chips */
 .skill-block {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 7px;
 }
 
-/* base chip */
+/* individual chip */
 .skill-chip {
-  padding: 6px 11px;
+  padding: 7px 12px;
   border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.80rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: #fff;
   white-space: nowrap;
   cursor: default;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.2s ease;
+  opacity: 0.92;
 }
 
 .skill-chip:hover {
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.25);
+  transform: translateY(-2px) scale(1.08);
+  opacity: 1;
+  box-shadow: 0 7px 16px rgba(15, 23, 42, 0.3);
 }
 
 /* color groups */
-.skill-red    { background: linear-gradient(90deg, #b91c1c, #ef4444); }
-.skill-blue   { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
-.skill-green  { background: linear-gradient(90deg, #047857, #10b981); }
-.skill-orange { background: linear-gradient(90deg, #b45309, #f59e0b); }
-.skill-purple { background: linear-gradient(90deg, #6d28d9, #a855f7); }
+.skill-red    { background: linear-gradient(90deg, #991b1b, #dc2626); }
+.skill-blue   { background: linear-gradient(90deg, #1e3a8a, #3b82f6); }
+.skill-green  { background: linear-gradient(90deg, #065f46, #10b981); }
+.skill-orange { background: linear-gradient(90deg, #9a3412, #f97316); }
+.skill-purple { background: linear-gradient(90deg, #5b21b6, #9333ea); }
+.skill-gray   { background: linear-gradient(90deg, #334155, #6b7280); }
+
 
 
 
@@ -362,31 +359,34 @@ body[data-theme="dark"] .ai-skill-card {
       prompt optimization and retrieval strategies that help extract gene–disease and
       gene–drug relationships for biomedical discovery and clinical decision support.
     </div>
-<div class="about-label">AI &amp; LLM SKILLS</div>
+<div class="about-label">AI & LLM SKILLS</div>
 <div class="ai-skill-card">
   <div class="skill-block">
 
-   <span class="skill-chip skill-red">API Modle </span>
-<span class="skill-chip skill-red">Open source </span>
-<span class="skill-chip skill-red">LLaMA</span>
-<span class="skill-chip skill-blue">Prompt Tuning</span>
-    
-<span class="skill-chip skill-blue">Modle Tuning</span>
-<span class="skill-chip skill-blue">Instruction Tuning</span>
-<span class="skill-chip skill-green">RAG</span>
-<span class="skill-chip skill-green">Embeddings</span>
+    <span class="skill-chip skill-red">API Models</span>
+    <span class="skill-chip skill-red">Open Source</span>
+    <span class="skill-chip skill-red">LLaMA</span>
 
-<span class="skill-chip skill-green">Vector Search</span>
-<span class="skill-chip skill-orange">AI Agent </span>
-<span class="skill-chip skill-orange">NER</span>
-<span class="skill-chip skill-orange">Multimodal</span>
-<span class="skill-chip skill-purple">Knowledge Graphs</span>
+    <span class="skill-chip skill-blue">Prompt Tuning</span>
+    <span class="skill-chip skill-blue">Model Tuning</span>
+    <span class="skill-chip skill-blue">Instruction Tuning</span>
 
-<span class="skill-chip skill-purple">Ontology</span>
-<span class="skill-chip skill-purple">UMLS</span>
-<span class="skill-chip skill-gray">Image & Text </span>
-<span class="skill-chip skill-gray">LangChain</span>
-<span class="skill-chip skill-gray">Hugging Face</span>
+    <span class="skill-chip skill-green">RAG</span>
+    <span class="skill-chip skill-green">Embeddings</span>
+    <span class="skill-chip skill-green">Vector Search</span>
+
+    <span class="skill-chip skill-orange">AI Agents</span>
+    <span class="skill-chip skill-orange">NER</span>
+    <span class="skill-chip skill-orange">Multimodal</span>
+
+    <span class="skill-chip skill-purple">Knowledge Graphs</span>
+    <span class="skill-chip skill-purple">Ontology</span>
+    <span class="skill-chip skill-purple">UMLS</span>
+
+    <span class="skill-chip skill-gray">Image–Text</span>
+    <span class="skill-chip skill-gray">LangChain</span>
+    <span class="skill-chip skill-gray">Hugging Face</span>
+
   </div>
 </div>
 
