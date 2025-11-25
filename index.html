@@ -266,23 +266,58 @@
   font-weight: 600;
   color: var(--text-main);
 }
-/* SKILL CHIPS */
-.skill-chip {
-  background: var(--chip-bg);
-  color: var(--chip-text);
-  padding: 6px 12px;
-  border-radius: 14px;
-  font-size: 0.82rem;
+/* AI & LLM skills card */
+.ai-skill-card {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
   border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(248,113,113,0.10), rgba(248,250,252,0.6));
+}
+
+body[data-theme="dark"] .ai-skill-card {
+  background: linear-gradient(135deg, rgba(248,113,113,0.08), rgba(15,23,42,0.9));
+}
+
+.ai-skill-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  text-align: justify;
+  margin-bottom: 8px;
+}
+
+/* skill chips layout */
+.skill-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* base chip */
+.skill-chip {
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #fff;
   white-space: nowrap;
   cursor: default;
-  transition: 0.2s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .skill-chip:hover {
-  transform: scale(1.05);
-  filter: brightness(1.07);
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.25);
 }
+
+/* color groups */
+.skill-red    { background: linear-gradient(90deg, #b91c1c, #ef4444); }
+.skill-blue   { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
+.skill-green  { background: linear-gradient(90deg, #047857, #10b981); }
+.skill-orange { background: linear-gradient(90deg, #b45309, #f59e0b); }
+.skill-purple { background: linear-gradient(90deg, #6d28d9, #a855f7); }
+
 
 
     @media (max-width: 860px) {
@@ -327,25 +362,40 @@
       prompt optimization and retrieval strategies that help extract gene–disease and
       gene–drug relationships for biomedical discovery and clinical decision support.
     </div>
- <div class="about-label">AI &amp; LLM SKILLS</div>
-    <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;">
-      <span class="skill-chip">GPT-4/5</span>
-      <span class="skill-chip">BioGPT</span>
-      <span class="skill-chip">LLaMA</span>
-      <span class="skill-chip">Prompt Optimization</span>
-      <span class="skill-chip">Bayesian Optimization</span>
-      <span class="skill-chip">RAG</span>
-      <span class="skill-chip">Biomedical NLP</span>
-      <span class="skill-chip">NER</span>
-      <span class="skill-chip">Knowledge Graphs</span>
-      <span class="skill-chip">UMLS</span>
-      <span class="skill-chip">Gene Ontology</span>
-      <span class="skill-chip">PyTorch</span>
-      <span class="skill-chip">TensorFlow</span>
-      <span class="skill-chip">HuggingFace</span>
-      <span class="skill-chip">LangChain</span>
-      <span class="skill-chip">Neo4j</span>
-    </div>
+<div class="about-label">AI &amp; LLM SKILLS</div>
+<div class="ai-skill-card">
+  <div class="skill-block">
+
+    <span class="skill-chip skill-red">Large Language Models (LLMs)</span>
+    <span class="skill-chip skill-red">GPT-4/5</span>
+    <span class="skill-chip skill-red">BioGPT</span>
+    <span class="skill-chip skill-red">LLaMA</span>
+    <span class="skill-chip skill-red">Mistral</span>
+
+    <span class="skill-chip skill-blue">Prompt Engineering</span>
+    <span class="skill-chip skill-blue">Prompt Tuning</span>
+    <span class="skill-chip skill-blue">Instruction Tuning</span>
+    <span class="skill-chip skill-blue">Few-shot / Zero-shot prompting</span>
+
+    <span class="skill-chip skill-green">Retrieval-Augmented Generation (RAG)</span>
+    <span class="skill-chip skill-green">Embedding-based Retrieval</span>
+
+    <span class="skill-chip skill-orange">Biomedical Text Mining</span>
+    <span class="skill-chip skill-orange">Figure-to-text Knowledge Extraction</span>
+    <span class="skill-chip skill-orange">Bioinformatics & Computational Biology</span>
+    <span class="skill-chip skill-orange">NER for Biomedical Entities</span>
+
+    <span class="skill-chip skill-purple">Gene–Disease–Drug Relationship Mining</span>
+    <span class="skill-chip skill-purple">Knowledge Graph Construction</span>
+    <span class="skill-chip skill-purple">Ontology Mapping (UMLS / Gene Ontology)</span>
+
+    <span class="skill-chip skill-gray">Hallucination Reduction</span>
+    <span class="skill-chip skill-gray">LLM Output Evaluation</span>
+    <span class="skill-chip skill-gray">Trustworthiness & Safety in LLMs</span>
+
+  </div>
+</div>
+
     
   </aside>
 
