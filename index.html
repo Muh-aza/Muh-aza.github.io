@@ -266,29 +266,54 @@
   font-weight: 600;
   color: var(--text-main);
 }
-.skill-block {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, auto));
-  gap: 4px;
+/* AI & LLM skills card */
+.ai-skill-card {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(248,113,113,0.10), rgba(248,250,252,0.7));
 }
 
-.skill-chip {
+body[data-theme="dark"] .ai-skill-card {
+  background: linear-gradient(135deg, rgba(248,113,113,0.05), rgba(15,23,42,0.95));
+}
+
+/* layout of skill chips */
+.skill-block {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 28px;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+/* individual chip */
+.skill-chip {
   padding: 7px 12px;
-  margin: 0 !important;
-  white-space: nowrap;
-  line-height: 1;
   border-radius: 999px;
   font-size: 0.80rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  color: #fff;
+  white-space: nowrap;
   cursor: default;
-  opacity: 0.92;
   transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.2s ease;
+  opacity: 0.92;
 }
+
+.skill-chip:hover {
+  transform: translateY(-2px) scale(1.08);
+  opacity: 1;
+  box-shadow: 0 7px 16px rgba(15, 23, 42, 0.3);
+}
+
+/* color groups */
+.skill-red    { background: linear-gradient(90deg, #991b1b, #dc2626); }
+.skill-blue   { background: linear-gradient(90deg, #1e3a8a, #3b82f6); }
+.skill-green  { background: linear-gradient(90deg, #065f46, #10b981); }
+.skill-orange { background: linear-gradient(90deg, #9a3412, #f97316); }
+.skill-purple { background: linear-gradient(90deg, #5b21b6, #9333ea); }
+.skill-gray   { background: linear-gradient(90deg, #334155, #6b7280); }
+
 
     @media (max-width: 860px) {
       .page {
