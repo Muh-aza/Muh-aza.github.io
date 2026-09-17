@@ -212,47 +212,44 @@
 }
 
 
-    /* PUBLICATION LIST STYLE (title bold + [View paper]) */
+ /* =========================
+   PUBLICATIONS
+========================= */
 
-    .pub-item {
-      margin-bottom: 10px;
-      text-align: justify;
-      line-height: 1.0;
-    }
+.publication-list {
+  padding-left: 1.6rem;
+  margin-top: 1rem;
+}
 
-    .pub-title-wrapper {
-      display: inline; /* keeps the link on same line as title */
-    }
+.pub-item {
+  margin-bottom: 1.4rem;
+  line-height: 1.6;
+}
 
-    .pub-title {
-      font-weight: 300;
-      font-size: 0.97rem;
-    }
+.pub-item strong {
+  font-weight: 650;
+}
 
-    .pub-link {
-      font-size: 0.9rem;
-      color: #2563eb;
-      margin-left: 4px;
-      white-space: nowrap;
-    }
+.pub-meta {
+  color: #555;
+  font-size: 0.96rem;
+}
 
-    .theme-toggle {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: var(--text-main);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
-    }
+.pub-link {
+  margin-left: 0.35rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pub-link:hover {
+  text-decoration: underline;
+}
+
+section h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.15rem;
+}
 
     .book-entry {
   font-size: 0.95rem;
@@ -438,10 +435,6 @@ body[data-theme="dark"] .about-text-box:hover {
   </div>
 </div>
 
-
-
-
-    
   </aside>
 
   <!-- RIGHT SIDE -->
@@ -470,15 +463,25 @@ body[data-theme="dark"] .about-text-box:hover {
 </section>
 
 
-  <!-- Publications -->
-<section>
-  <h2>Selected Publications and Manuscripts</h2>
+ <!-- =========================
+     PUBLICATIONS
+========================= -->
+<section id="publications">
+  <h2>Publications and Manuscripts</h2>
+
+  <!-- Peer-Reviewed Journal Articles -->
+  <h3>Peer-Reviewed Journal Articles</h3>
 
   <ol class="publication-list">
 
     <li class="pub-item">
-      <span class="pub-title">
-        <strong>FatPlants 2.0: an AI-powered platform integrating plant lipid genes, pathways, and literature</strong>
+      <strong>
+        FatPlants 2.0: an AI-powered platform integrating plant lipid genes,
+        pathways, and literature
+      </strong><br>
+      <span class="pub-meta">
+        Qin, Y., Guo, C., Kim, M., Zhang, Y., <strong>Azam, M.</strong>, et al.
+        (2026). <em>The Plant Journal</em>, 127(5), e71117.
       </span>
       <a class="pub-link"
          href="https://doi.org/10.1111/tpj.71117"
@@ -486,9 +489,16 @@ body[data-theme="dark"] .about-text-box:hover {
          rel="noopener noreferrer">[View paper]</a>
     </li>
 
+
     <li class="pub-item">
-      <span class="pub-title">
-        <strong>SPINET-KSP: A Multi-Modal LLM-Graph Foundation Model for Contextual Prediction of Kinase-Substrate-Phosphatase Triads</strong>
+      <strong>
+        SPINET-KSP: A Multi-Modal LLM-Graph Foundation Model for Contextual
+        Prediction of Kinase-Substrate-Phosphatase Triads
+      </strong><br>
+      <span class="pub-meta">
+        Arowolo, M. O., Okon, M. E., Austria, D.,
+        <strong>Azam, M.</strong>, &amp; Abdulsalam, S. O. (2026).
+        <em>Kinases and Phosphatases</em>, 4(1), 3.
       </span>
       <a class="pub-link"
          href="https://doi.org/10.3390/kinasesphosphatases4010003"
@@ -496,106 +506,334 @@ body[data-theme="dark"] .about-text-box:hover {
          rel="noopener noreferrer">[View paper]</a>
     </li>
 
+
     <li class="pub-item">
-      <span class="pub-title">
-        <strong>Bayesian Optimization of ASCII Structural Anchors for Improving Large Language Model Performance in Biomedical Knowledge Mining</strong>
+      <strong>
+        Applications of Large Language Models and Prompt Optimization for
+        Knowledge Extraction from Biological Pathway Figures
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2025).
+        <em>IEEE Journal of Biomedical and Health Informatics</em>.
       </span>
+      <a class="pub-link"
+         href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6363502"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        A Comprehensive Evaluation of Large Language Models in Mining Gene
+        Interactions and Pathway Knowledge
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2024).
+        <em>Quantitative Biology</em>, Wiley.
+      </span>
+      <a class="pub-link"
+         href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/qub2.57"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Recognition of Gene Names from Gene Pathway Figures Using Siamese Network
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2023).
+        <em>WASET International Journal</em>.
+      </span>
+      <a class="pub-link"
+         href="https://publications.waset.org/10013091/recognition-of-gene-names-from-gene-pathway-figures-using-siamese-network"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Annotations of Gene Pathways Images in Biomedical Publications Using
+        Siamese Network
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2023).
+        <em>WASET International Journal</em>.
+      </span>
+      <a class="pub-link"
+         href="https://publications.waset.org/10013264/annotations-of-gene-pathways-images-in-biomedical-publications-using-siamese-network"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Evaluations of Similarity-Based Link Prediction Techniques in Social Network
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2023).
+        <em>Journal of Engineering Science and Technology</em>,
+        18(2), 1055–1082.
+      </span>
+      <a class="pub-link"
+         href="https://jestec.taylors.edu.my/Vol%2018%20Issue%202%20April%202023/18_2_15.pdf"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        A Systematic Review of Non-functional Requirements Mapping into
+        Architectural Styles
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2023).
+        <em>Bulletin of Electrical Engineering and Informatics</em>.
+      </span>
+      <a class="pub-link"
+         href="https://beei.org/index.php/EEI/article/view/4081/3185"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Comparative Analysis of Machine Learning Technique to Improve Software
+        Defect Prediction
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2022).
+        <em>KIET Journal of Computing and Information Sciences</em>.
+      </span>
+      <a class="pub-link"
+         href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/96"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Evaluation of Image Support Resolution Deep Learning Technique Based
+        on PSNR Value
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2022).
+        <em>Journal of Computing and Information Sciences</em>.
+      </span>
+      <a class="pub-link"
+         href="https://kjcis.kiet.edu.pk/index.php/kjcis/article/view/160"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Suicidal Behavior Prediction and Socioeconomic Suicide Indicators
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2022).
+        <em>EAI Endorsed Transactions on Pervasive Health and Technology</em>.
+      </span>
+      <a class="pub-link"
+         href="https://publications.eai.eu/index.php/phat/article/view/3175"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        A Systematic Review of Blockchain Technology in the Current Epoch:
+        Applications, Adoption Challenges, and Opportunities
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2022).
+        <em>Bulletin of Electrical Engineering and Informatics</em>.
+      </span>
+      <a class="pub-link"
+         href="https://journal.beei.org/index.php/EEI/article/view/4081"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Secure Digital Transactions in The Education Sector Using Blockchain
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2021).
+        <em>EAI Endorsed Transactions on Scalable Information Systems</em>.
+      </span>
+      <a class="pub-link"
+         href="https://eudl.eu/doi/10.4108/eai.3-11-2021.171758"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        The Role of Laboratory Technicians and the Client Public–Private
+        Collaboration Against COVID-19
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2021).
+        <em>Academia Letters</em>.
+      </span>
+      <a class="pub-link"
+         href="https://doi.org/10.20935/AL3284"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Structural Importance-based Link Prediction Techniques in Social Network
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2021).
+        <em>EAI Endorsed Transactions on Industrial Networks and Intelligent Systems</em>.
+      </span>
+      <a class="pub-link"
+         href="https://eudl.eu/doi/10.4108/eai.7-1-2021.167840"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+  </ol>
+
+
+  <!-- Conference Publications -->
+  <h3>Conference Publications</h3>
+
+  <ol class="publication-list">
+
+    <li class="pub-item">
+      <strong>
+        Evaluation and Integration of Advanced AI Chatbots for Biological
+        Pathway Curation
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2024).
+        <em>IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</em>.
+      </span>
+      <a class="pub-link"
+         href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10822181"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+
+    <li class="pub-item">
+      <strong>
+        Gene Name Recognition in Gene Pathway Figures Using Siamese Networks
+      </strong><br>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2024).
+        <em>IEEE MedAI Conference</em>.
+      </span>
+      <a class="pub-link"
+         href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10803455"
+         target="_blank"
+         rel="noopener noreferrer">[View paper]</a>
+    </li>
+
+  </ol>
+
+
+  <!-- Preprints and Manuscripts -->
+  <h3>Preprints and Manuscripts Under Review</h3>
+
+  <ol class="publication-list">
+
+    <li class="pub-item">
+      <strong>
+        Bayesian Optimization of ASCII Structural Anchors for Improving
+        Large Language Model Performance in Biomedical Knowledge Mining
+      </strong><br>
+
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, Aldihis, H., Zeng, S., &amp; Xu, D. (2026).
+        <em>Nature Machine Intelligence</em> — Under Review.
+        Preprint available at Research Square.
+      </span>
+
       <a class="pub-link"
          href="https://doi.org/10.21203/rs.3.rs-9243236/v1"
          target="_blank"
          rel="noopener noreferrer">[View preprint]</a>
     </li>
 
-    <li class="pub-item">
-      <span class="pub-title">
-        <strong>Large-Scale Language Models for Biomedical Research</strong>
-      </span>
-      <a class="pub-link"
-         href="https://doi.org/10.1007/978-981-92-2696-2_4"
-         target="_blank"
-         rel="noopener noreferrer">[View chapter]</a>
-    </li>
 
     <li class="pub-item">
-      <span class="pub-title">
-        <strong>HEAL-RAG: A Hybrid Evolving Retrieval-Augmented Generation Framework for Explainable Biomedical Data Analysis and Clinical Decision Support</strong>
-      </span>
-      <span class="pub-status">
-        <em>Algorithms — Under Review; Pending Editor Decision</em>
+      <strong>
+        HEAL-RAG: A Hybrid Evolving Retrieval-Augmented Generation Framework
+        for Explainable Biomedical Data Analysis and Clinical Decision Support
+      </strong><br>
+
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2026).
+        <em>Algorithms</em> — Under Review; Pending Editor Decision.
       </span>
     </li>
 
-    <li class="pub-item">
-      <span class="pub-title">
-        <strong>Optimize Large Language Model Prompts for Text Mining through Bayesian Optimization</strong>
-      </span>
-      <span class="pub-status">
-        <em>Nature Machine Intelligence — Under Review</em>
-      </span>
-    </li>
 
     <li class="pub-item">
-      <span class="pub-title">
-        <strong>Advancing Molecular Biology Analysis with a Retrieval-Augmented Generation Framework for Gene Interactions</strong>
-      </span>
-      <span class="pub-status">
-        <em>Manuscript Under Review</em>
-      </span>
-    </li>
+      <strong>
+        Advancing Molecular Biology Analysis with a Retrieval-Augmented
+        Generation Framework for Gene Interactions
+      </strong><br>
 
-    <li class="pub-item">
-      <span class="pub-title">
-        <strong>Applications of Large Language Models and Prompt Optimization for Knowledge Extraction from Biological Pathway Figures</strong>
+      <span class="pub-meta">
+        <strong>Azam, M.</strong>, et al. (2026).
+        Manuscript under review.
       </span>
-      <a class="pub-link"
-         href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=6363502"
-         target="_blank">[View paper]</a>
-    </li>
-
-    <li class="pub-item">
-      <span class="pub-title">
-        <strong>Evaluation and Integration of Advanced AI Chatbots for Biological Pathway Curation</strong>
-      </span>
-      <a class="pub-link"
-         href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10822181"
-         target="_blank">[View paper]</a>
-    </li>
-
-    <li class="pub-item">
-      <span class="pub-title">
-        <strong>Gene Name Recognition in Gene Pathway Figures Using Siamese Networks</strong>
-      </span>
-      <a class="pub-link"
-         href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10803455"
-         target="_blank">[View paper]</a>
-    </li>
-
-    <li class="pub-item">
-      <span class="pub-title">
-        <strong>A Comprehensive Evaluation of Large Language Models in Mining Gene Interactions and Pathway Knowledge</strong>
-      </span>
-      <a class="pub-link"
-         href="https://onlinelibrary.wiley.com/doi/epdf/10.1002/qub2.57"
-         target="_blank">[View paper]</a>
     </li>
 
   </ol>
 </section>
-<!-- Book Chapter -->
-<section>
+
+
+<!-- =========================
+     BOOK CHAPTER
+========================= -->
+
+<section id="book-chapter">
+
   <h2>Book Chapter</h2>
-  <p>
-    <strong>Large-Scale Language Models for Biomedical Research.</strong>
-    Muhammad Azam, Shuai Zeng, Micheal Olaolu Arowol, and Dong Xu.
-    <em>Artificial Intelligence-Driven Drug Design</em>,
-    Advances in Experimental Medicine and Biology, Vol. 1520,
-    Springer Nature, 2026.
-    <a href="https://doi.org/10.1007/978-981-92-2696-2_4"
+
+  <div class="pub-item">
+
+    <strong>
+      Large-Scale Language Models for Biomedical Research
+    </strong><br>
+
+    <span class="pub-meta">
+      <strong>Muhammad Azam</strong>, Shuai Zeng,
+      Micheal Olaolu Arowol, and Dong Xu (2026).
+      In <em>Artificial Intelligence-Driven Drug Design</em>,
+      <em>Advances in Experimental Medicine and Biology</em>,
+      Vol. 1520, Springer Nature.
+    </span>
+
+    <a class="pub-link"
+       href="https://doi.org/10.1007/978-981-92-2696-2_4"
        target="_blank"
        rel="noopener noreferrer">[View chapter]</a>
-  </p>
-</section>
 
+  </div>
+
+</section>
 <!-- Talks -->
 <section>
   <h2>Conference Presentations &amp; Invited Talks</h2>
